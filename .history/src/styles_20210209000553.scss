@@ -1,0 +1,39 @@
+@font-face {
+  font-family: "MontrealBold";
+  src: url("assets/fonts/Montreal-Bold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "MontrealHeavy";
+  src: url("assets/fonts/montreal-heavy.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "ProSemiBold";
+  src: url("assets/fonts/SofiaProSemiBold_0.otf") format("opentype");
+}
+
+.table {
+  width: 600px;
+  margin: 20px;
+  &__header {
+    display: flex;
+    align-items: center;
+  margin-bottom: ;
+  }
+  &__header-item {
+    flex: 1 1 0%;
+    text-align: center;
+    font-family: MontrealHeavy;
+    font-size: 26px;
+    margin-right: 10px;
+  }
+  &__data-row {
+    display: flex;
+    align-items: center;
+  }
+  &__data-row-item {
+    flex: 1 1 0%;
+    text-align: center;
+  }
+}

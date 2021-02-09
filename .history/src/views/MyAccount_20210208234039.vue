@@ -1,0 +1,71 @@
+<template>
+  <div class="myAccount">
+    <div class="myAccount__content">
+      <div class="myAccount__title">
+        <Title text="MI CUENTA"/>
+      </div>
+      <div>
+        <span class="myAccount__description">¡Bienvenido, <span class="myAccount__redDescription">Felipe López</span>!</span>
+        <span class="myAccount__description">este es el estado de tu cuenta al momento:</span>
+      </div>
+      <div class="myAccount__footer">
+          <div class="myAccount__footer-row">
+            <span class="myAccount__footer-row-text">TOTAL CÓDIGOS</span>
+            <div>
+              <span>8</span>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+import Title from '../components/Title'
+export default {
+  name: 'MyAccount',
+  components: {
+    Title
+  },
+}
+</script>
+
+<style lang="scss">
+.myAccount {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  &__title {
+    margin-bottom: 20px;
+  }
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: rgba(251,199, 2, 0.5);
+    box-shadow: 7px 7px 7px #00000059;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    padding: 20px 0 40px 0;
+    width: 500px;
+  }
+  &__description {
+     font-family: MontrealHeavy;
+     font-size: 26px;
+  }
+  &__redDescription {
+    color: #D62626;
+  }
+  &__footer {
+    display: flex;
+    width: 400px;
+    align-items: center;
+    justify-content: flex-end;
+  }
+  &__footer-row {
+    display: flex;
+    align-items: center;
+  }
+  &__footer-row-text {}
+}
+</style>
