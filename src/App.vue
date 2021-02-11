@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <div class="app__image-content">
     <img
     v-if="!login"
       class="app__image"
@@ -8,8 +9,9 @@
     <img
     v-if="login"
       class="app__image"
-      src="@/assets/web/fondo-ingresar.png"
+      src="@/assets/web/fondo-ingresar.jpg"
     />
+    </div>
     <div class="app__content">
       <div class="app__routes">
         <div class="app__box">
@@ -72,13 +74,21 @@ export default {
   bottom: 0;
   left: 0;
   right: 0;
-  &__image {
+  background-color: rgba(251,199, 2, 0.5);
+  &__image-content {
     position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     top: 0;
     left: 0px;
-    width: 110%;
-    height: 100%;
+    right: 0;
+    bottom: 0;
     z-index: 1;
+    background-color: rgba(251,199, 2);
+  }
+  &__image {
+    height: 100%;
   }
   &__content {
     position: absolute;

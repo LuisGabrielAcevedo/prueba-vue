@@ -20,15 +20,6 @@ export const Register = async (user) => {
   return resp.data;
 };
 
-export const UpdateUser = async (user) => {
-  const resp = await Vue.axios({
-    method: "POST",
-    url: "update-profile",
-    data: user,
-  });
-  return resp.data;
-};
-
 export const SaveMessage = async (data) => {
   const resp = await Vue.axios({
     method: "POST",
@@ -46,18 +37,27 @@ export const GetStatus = async () => {
   return resp.data;
 };
 
-export const GetBalance = async () => {
+export const SaveCodes = async (data) => {
   const resp = await Vue.axios({
-    method: "Get",
-    url: "v1/get-balance",
+    method: "POST",
+    url: "v1/code-redemptions",
+    data,
   });
   return resp.data;
 };
 
-export const CodeRedemptions = async () => {
+export const GetCodes = async () => {
   const resp = await Vue.axios({
     method: "Get",
     url: "v1/code-redemptions",
+  });
+  return resp.data;
+};
+
+export const Ranking = async () => {
+  const resp = await Vue.axios({
+    method: "Get",
+    url: "v1/get-ranking",
   });
   return resp.data;
 };
@@ -66,15 +66,6 @@ export const CodeDebit = async () => {
   const resp = await Vue.axios({
     method: "Get",
     url: "v1/get-debit",
-  });
-  return resp.data;
-};
-
-export const SaveCodes = async (data) => {
-  const resp = await Vue.axios({
-    method: "POST",
-    url: "v1/code-redemptions",
-    data,
   });
   return resp.data;
 };

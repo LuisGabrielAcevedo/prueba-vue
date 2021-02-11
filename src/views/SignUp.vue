@@ -4,17 +4,17 @@
       <div class="signUp__title"><Title text="REGISTRO"/></div>
       <div class="signUp__form-row">
         <Input
-          :model="user.fisrtName"
+          :model="user.firstName"
           @close-all="
             $refs.operator.open = false;
             $refs.department_state.open = false;
           "
-          field="fisrtName"
+          field="firstName"
           label="NOMBRE"
           @handle-input="setValue($event)"
           placeholder=""
           :required="false"
-          :error="errors.fisrtName"
+          :error="errors.firstName"
         />
         <Input
           :model="user.lastName"
@@ -104,26 +104,37 @@
         <div style="width: 440px;"></div>
       </div>
       <span class="signUp__description">Es importante que verifiques tu email. En caso de ser ganador sólo se te contactará por éste medio y si tu email no es correcto no podrás recibir el premio.</span>
-      <div>
-        <div class="signUp__radio-container">
-          <Radio @handle-click="toggleTerms()" :value="terms"/>
-          <span class="signUp__radio-text">Acepto los <span class="signUp__radio-text-action">términos y condiciones</span> de la promoción.</span>
-        </div>
-        <div class="signUp__radio-container">
-          <Radio @handle-click="toggleTerms2()" :value="terms2"/>
-          <span class="signUp__radio-text">Acepto los <span class="signUp__radio-text-action">términos y condiciones</span> de manejo de datos.</span>
-        </div>
-        <div class="signUp__radio-container">
-          <div style="width:40px;">
-            <Radio @handle-click="toggleTerms3()" :value="terms3"/>
+      <div class="signUp__footer">
+        <div>
+          <div class="signUp__radio-container">
+            <Radio @handle-click="toggleTerms()" :value="terms"/>
+            <span class="signUp__radio-text">Acepto los <span class="signUp__radio-text-action" @click="goTo('/terminos-y-condiciones')">términos y condiciones</span> de la promoción.</span>
           </div>
-          <span class="signUp__radio-text">Declaro que no soy trabajador o colaborador de PepsiCo, y/o sus compañías asociadas ni de los distribuidores de PepsiCo.</span>
+          <div class="signUp__radio-container">
+            <Radio @handle-click="toggleTerms2()" :value="terms2"/>
+            <span class="signUp__radio-text">Acepto los <span class="signUp__radio-text-action" @click="goTo('/terminos-y-condiciones')">términos y condiciones</span> de manejo de datos.</span>
+          </div>
+          <div class="signUp__radio-container">
+            <div style="width:40px;">
+              <Radio @handle-click="toggleTerms3()" :value="terms3"/>
+            </div>
+            <span class="signUp__radio-text">Declaro que no soy trabajador o colaborador de PepsiCo, y/o sus compañías asociadas ni de los distribuidores de PepsiCo.</span>
+          </div>
         </div>
-      </div>
-      <div class="signUp__button-container">
-        <Button text="ENVIAR" @handle-click="send()"/>
+        <div class="signUp__button-container">
+          <Button text="ENVIAR" @handle-click="send()"/>
+        </div>
       </div>
     </div>
+    <modal :dialog="dialog" @close="dialog = false" width="600">
+      <signup-confirm
+        v-if="dialog"
+        :user="user"
+        slot="component"
+        @close="dialog = false"
+        @close-success="closeSuccess($event)"
+      ></signup-confirm>
+    </modal>
   </div>
 </template>
 
@@ -133,17 +144,21 @@ import Radio  from '../components/Radio'
 import Button  from '../components/Button'
 import Input from '../components/Input'
 import Select from '../components/Select'
+import Modal from '../components/Modal'
+import SignupConfirm from '../components/SignUpConfirm'
+
 export default {
   name: 'SignUp',
   data() {
     return {
-      terms: true,
-      terms2: true,
-      terms3: true,
+      terms: false,
+      terms2: false,
+      terms3: false,
       user: {},
       loading: false,
       touch: false,
       errors: {},
+      dialog: false,
       operators: [
         "Claro",
         "Movistar",
@@ -196,7 +211,9 @@ export default {
     Radio,
     Button,
     Input,
-    Select
+    Select,
+    Modal,
+    SignupConfirm
   },
   methods: {
     toggleTerms() {
@@ -209,7 +226,55 @@ export default {
       this.terms3 = !this.terms3
     },
     send() {
-      console.log(this.user)
+      if (
+        !this.user.firstName ||
+        !this.user.lastName ||
+        !this.user.email ||
+        !this.user.department_state ||
+        !this.user.idn ||
+        !this.user.operator ||
+        !this.user.phone
+      ) {
+        this.touch = true;
+        this.validate();
+        this.$store.dispatch("setAlert", {
+          buttonLabel: "Aceptar",
+          type:'INFO',
+          showClose: true,
+          message: "¡Debes completar los campos requeridos!."
+        });
+      } else {
+        if (!Object.keys(this.errors).length) {
+          if (!this.terms || !this.terms2) {
+            this.$store.dispatch("setAlert", {
+              buttonLabel: "Aceptar",
+              type:'INFO',
+              showClose: true,
+              message: "¡Debes aceptar los términos y condiciones!."
+            });
+          } else if (!this.terms3) {
+            this.$store.dispatch("setAlert", {
+              buttonLabel: "Aceptar",
+              type:'INFO',
+              showClose: true,
+              message: "¡Debes aceptar la declaración!."
+            });
+          } else {
+            this.dialog = true;
+          }
+        } else {
+          const e = [];
+          Object.keys(this.errors).forEach(key => {
+            e.push(this.errors[key]);
+          })
+          this.$store.dispatch("setAlert", {
+            buttonLabel: "Aceptar",
+            type:'INFO',
+            showClose: true,
+            messages: e
+          });
+        }
+      }
     },
     goTo(path) {
       if (this.$route.path !== `/${path}`) this.$router.push(path);
@@ -217,6 +282,21 @@ export default {
     setValue(e) {
       this.user[e.key] = e.value;
       this.validate();
+    },
+    closeSuccess(resp) {
+      this.dialog = false;
+      this.user = {
+        firstName: "",
+        lastName: "",
+        email: "",
+        department_state: "",
+        idn: "",
+        operator: "",
+        phone: ""
+      };
+      this.$store.dispatch("setToken", resp.token);
+      this.$store.dispatch("setUser", resp.user);
+      this.goTo("/ingresar-codigo");
     },
     validate() {
       if (this.user.phone) this.user.phone = this.user.phone.trim();
@@ -232,10 +312,10 @@ export default {
         errors.email = "Ingresa un correo válido.";
       }
       if (
-        this.user.fisrtName &&
-        !(this.user.fisrtName.length > 6 && this.user.fisrtName.length < 20)
+        this.user.firstName &&
+        !(this.user.firstName.length > 6 && this.user.firstName.length < 20)
       ) {
-        errors.fisrtName = "El nombre debe tener entre 6 y 20 carácteres.";
+        errors.firstName = "El nombre debe tener entre 6 y 20 carácteres.";
       }
       if (
         this.user.lastName &&
@@ -257,7 +337,7 @@ export default {
           errors.idn = "Ingresa un número de cédula válido.";
       }
       if (this.touch) {
-        if (!this.user.fisrtName) errors.fisrtName = "Este campo es obligatorio.";
+        if (!this.user.firstName) errors.firstName = "Este campo es obligatorio.";
         if (!this.user.lastName) errors.lastName = "Este campo es obligatorio.";
         if (!this.user.email) errors.email = "Este campo es obligatorio.";
         if (!this.user.idn) errors.idn = "Este campo es obligatorio.";
@@ -335,6 +415,11 @@ export default {
     @include mobile() {
       flex-direction: column;
     }
+  }
+  &__footer {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
   }
 }
 </style>

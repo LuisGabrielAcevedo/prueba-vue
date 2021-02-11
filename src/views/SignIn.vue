@@ -8,10 +8,6 @@
       class="signIn__image"
       src="@/assets/web/grupo.png"
      />
-     <img
-      class="signIn__start-image"
-      src="@/assets/web/estrellas.png"
-     />
      <span class="signIn__signInTitle">¿YA ESTÁS REGISTRADO?</span>
     <div class="signIn__form">
       <div class="signIn__input">
@@ -115,7 +111,7 @@ export default {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  padding-right: 180px;
+  padding-right: 280px;
   &__content {
     display: flex;
     flex-direction: column;

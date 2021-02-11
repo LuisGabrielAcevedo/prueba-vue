@@ -36,15 +36,9 @@ export default {
   flex-direction: column;
   align-items: center;
   padding-top: 20px;
-  &__image {
-    width: 500px;
-    @include mobile() {
-      width: 300px;
-    }
-  }
   &__image2 {
     margin-top: 20px;
-    height: 600px;
+    height: 500px;
     @include mobile() {
        height: 453px;
     }

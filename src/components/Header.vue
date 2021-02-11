@@ -201,7 +201,9 @@ export default {
     }
     &__content { 
         position: relative;
+        margin: 0 auto;
         height: 84px;
+        max-width: 1200px;
         background: #D62626 0% 0% no-repeat padding-box;
         border-top: 4px solid #f31c14;
         border-bottom: 4px solid #c4140c;
@@ -211,7 +213,7 @@ export default {
         align-items: center;
         justify-content: space-between;
         padding: 0 24px;
-        padding-right: 70px;
+        // padding-right: 70px;
         @include tablet() {
           padding-right: 24px;
         }
@@ -224,7 +226,7 @@ export default {
     &__closeContainer {
       position: absolute;
       top: 85px;
-      right: 60px;
+      right: 24px;
       background-color: #D62626;
       border-radius: 25px;
       padding: 6px 10px;

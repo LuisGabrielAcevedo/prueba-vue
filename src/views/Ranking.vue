@@ -10,9 +10,9 @@
         </div>
         <div class="table__data">
           <div class="table__data-row" v-for="(item, i) in data" :key="i">
-            <span class="table__data-row-item">{{ i + 1 }}</span>
+            <span class="table__data-row-item">{{ item.position }}</span>
             <span class="table__data-row-item">{{item.name}}</span>
-            <span class="table__data-row-item">{{item.amount}}</span>
+            <span class="table__data-row-item">{{8}}</span>
           </div>
         </div>
       </div>
@@ -21,11 +21,15 @@
 </template>
 
 <script>
+import {Ranking} from '../api'
 import Title from '../components/Title'
 export default {
   name: 'Ranking',
   components: {
     Title
+  },
+  mounted() {
+    this.getRanking()
   },
   computed: {
     mobile() {
@@ -36,40 +40,16 @@ export default {
       return this.$store.getters.user;
     }
   },
+  methods: {
+    getRanking() {
+      Ranking().then(resp => {
+        this.data = resp.data
+      })
+    }
+  },
   data() {
     return {
-      data: [
-        {
-          id: 1,
-          name: "Luis Acevedo",
-          amount: 45
-        },
-        {
-          id: 2,
-          name: "Luis Acevedo",
-          amount: 34
-        },
-        {
-          id: 3,
-          name: "Luis Acevedo",
-          amount: 9
-        },
-        {
-          id: 4,
-          name: "Luis Acevedo",
-          amount: 34
-        },
-        {
-          id: 5,
-          name: "Luis Acevedo",
-          amount: 5
-        },
-        {
-          id: 6,
-          name: "Luis Acevedo",
-          amount: 9
-        }
-      ]
+      data: []
     };
   }
 }

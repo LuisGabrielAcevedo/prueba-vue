@@ -24,15 +24,16 @@ export default {
 <style lang="scss">
 .button {
     background-color: #D72626;
-    border: 2px solid white;
     border-radius: 25px;
-    padding: 4px 24px;
+    padding: 6px 12px;
     cursor: pointer;
+    display: flex;
+    justify-content: center;
     &__text {
       color:white;
       font-family: MontrealHeavy;
-      font-size: 20px;
-      line-height: 20px;
+      font-size: 18px;
+      line-height: 18px;
     }
 }
 </style>
