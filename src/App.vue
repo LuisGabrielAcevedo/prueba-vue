@@ -2,14 +2,19 @@
   <div id="app">
     <div class="app__image-content">
     <img
-    v-if="!login"
+      v-if="!login"
       class="app__image"
       src="@/assets/web/fondo.jpg"
     />
     <img
-    v-if="login"
+      v-if="login && !mobile"
       class="app__image"
       src="@/assets/web/fondo-ingresar.jpg"
+    />
+    <img
+    v-if="login && mobile"
+      class="app__image2"
+      src="@/assets/mobile/fondo2.jpg"
     />
     </div>
     <div class="app__content">
@@ -45,6 +50,9 @@ export default {
     },
     alert() {
       return this.$store.getters.alert;
+    },
+    mobile() {
+      return this.$store.getters.mobile;
     },
   },
   methods: {
@@ -92,6 +100,10 @@ export default {
   }
   &__image {
     height: 100vh;
+  }
+  &__image2 {
+    height: 100vh;
+    width: 100%;
   }
   &__content {
     position: absolute;

@@ -29,7 +29,6 @@ const getActivity = async () => {
 };
 
 const activityGuard = async (to, from, next) => {
-  console.log(to.path, from.path);
   const redirect = await getActivity();
   redirect ? next(redirect) : next();
 };

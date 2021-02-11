@@ -20,7 +20,9 @@
             <span class="table__data-row-item">{{i + 1}}</span>
             <span class="table__data-row-item">{{item.code}}</span>
             <span class="table__data-row-item">{{formatDate(item.created_at)}}</span>
-            <span class="table__data-row-item">{{item.result || '-'}}</span>
+            <span class="table__data-row-item" :class="{
+                  'table--data-row-item-selected': item.result
+                }">{{item.result ? 'RECARGA' : '-'}}</span>
           </div>
         </div>
       </div>

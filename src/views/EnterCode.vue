@@ -84,7 +84,7 @@ import Title from '../components/Title'
 import Input from '../components/Input'
 import Button from '../components/Button'
 import VueRecaptcha from "vue-recaptcha";
-import {SaveCodes} from '../api'
+import {SaveCodes, GetStatus} from '../api'
 
 export default {
   name: 'EnterCode',
@@ -95,6 +95,9 @@ export default {
       error: "",
       recaptchaCode: true,
     };
+  },
+  mounted() {
+   
   },
   components: {
     Title,
@@ -134,15 +137,17 @@ export default {
       SaveCodes({
         code: this.id,
       })
-        .then((resp) => {
-          this.id = "";
-          this.loading = false;
-          this.$store.dispatch("setAlert", {
+        .then(() => {
+           GetStatus().then(resp => {
+            this.id = "";
+            this.loading = false;
+            this.$store.dispatch("setAlert", {
             showClose: true,
             type:'SUCCESS',
             title: '¡EL CÓDIGO FUE REGISTRADO CORRECTAMENTE!',
-            message: resp.data.mensaje,
+            message: resp.data,
           });
+          })
         })
         .catch((err) => {
           this.id = "";

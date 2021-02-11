@@ -31,6 +31,9 @@
         </div>
       </div>
     </div>
+    <div class="awards__footer">
+      <span class="awards__footer-text">Aplican Términos y Condiciones.</span>
+    </div>
   </div>
 </template>
 
@@ -50,6 +53,12 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 600px;
+  margin: 0 auto;
+  @include mobile {
+      width: 100%;
+      margin: 0;
+  }
   &__content {
     display: flex;
     flex-direction: column;
@@ -113,6 +122,20 @@ export default {
     line-height: 14px;
     font-size: 14px;
     letter-spacing: 1.9px;
+  }
+  &__footer {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    margin-right: -170px;
+    margin-top: 20px;
+    @include mobile() {
+      margin: 20px;
+      margin-right: 90px;
+    }
+  }
+  &__footer-text {
+    font-family: MontrealBold;
   }
 }
 </style>

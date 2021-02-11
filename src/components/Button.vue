@@ -1,5 +1,5 @@
 <template>
-  <div class="button" @click="click()">
+  <div class="button" @click="click()" :style="{'background-color': color}">
     <span class="button__text">{{text}}</span>
   </div>
 </template>
@@ -12,18 +12,22 @@ export default {
       type: String,
       default: ''
     },
+    color: {
+      type: String,
+      default: '#D72626'
+    },
   },
   methods: {
     click() {
-        this.$emit('handle-click')
+      this.$emit('handle-click')
     }
   }
 }
 </script>
 
 <style lang="scss">
+@import "@/assets/scss/mixins.scss";
 .button {
-    background-color: #D72626;
     border-radius: 25px;
     padding: 6px 12px;
     cursor: pointer;
@@ -34,6 +38,10 @@ export default {
       font-family: MontrealHeavy;
       font-size: 18px;
       line-height: 18px;
+      @include mobile() {
+         font-size: 16px;
+         line-height: 16px;
+      }
     }
 }
 </style>

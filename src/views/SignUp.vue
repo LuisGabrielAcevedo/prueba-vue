@@ -107,24 +107,32 @@
       <div class="signUp__footer">
         <div>
           <div class="signUp__radio-container">
-            <div style="width:30px;">
+            <div>
               <Radio @handle-click="toggleTerms()" :value="terms"/>
             </div>
             <span class="signUp__radio-text">Acepto los <span class="signUp__radio-text-action" @click="goTo('/terminos-y-condiciones')">términos y condiciones</span> de la promoción.</span>
           </div>
           <div class="signUp__radio-container">
-            <div style="width:30px;">
+            <div>
               <Radio @handle-click="toggleTerms2()" :value="terms2"/>
             </div>
             <span class="signUp__radio-text">Acepto los <span class="signUp__radio-text-action" @click="goTo('/terminos-y-condiciones')">términos y condiciones</span> de manejo de datos.</span>
           </div>
           <div class="signUp__radio-container">
             <div style="width:40px;">
-              <div style="width:30px;">
+              <div>
                 <Radio @handle-click="toggleTerms3()" :value="terms3"/>
               </div>
             </div>
             <span class="signUp__radio-text">Declaro que no soy trabajador o colaborador de PepsiCo, y/o sus compañías asociadas ni de los distribuidores de PepsiCo.</span>
+          </div>
+          <div class="signUp__radio-container">
+            <div style="width:40px;">
+              <div>
+                <Radio @handle-click="toggleTerms4()" :value="terms4"/>
+              </div>
+            </div>
+            <span class="signUp__radio-text" style="margin-left: -12px;">Soy mayor de edad.</span>
           </div>
         </div>
         <div class="signUp__button-container">
@@ -160,6 +168,7 @@ export default {
       terms: false,
       terms2: false,
       terms3: false,
+      terms4: false,
       user: {},
       loading: false,
       touch: false,
@@ -231,6 +240,9 @@ export default {
     toggleTerms3() {
       this.terms3 = !this.terms3
     },
+    toggleTerms4() {
+      this.terms4 = !this.terms4
+    },
     send() {
       if (
         !this.user.firstName ||
@@ -265,7 +277,14 @@ export default {
               showClose: true,
               message: "¡Debes aceptar la declaración!."
             });
-          } else {
+          } else if (!this.terms4) {
+            this.$store.dispatch("setAlert", {
+              buttonLabel: "Aceptar",
+              type:'INFO',
+              showClose: true,
+              message: "¡Para participar en la actividad debes ser mayor de edad!."
+            });
+          }else {
             this.dialog = true;
           }
         } else {
@@ -398,7 +417,7 @@ export default {
     display: flex;
     align-content: center;
     margin-bottom: 10px;
-    width: 400px;
+    width: 420px;
     @include mobile() {
       width: 100%;
     }

@@ -40,6 +40,9 @@
     align-items: center;
     padding: 5px 0;
   }
+  &--data-row-item-selected {
+    color: #d62626;
+  }
   &__data-row--selected {
     display: flex;
     align-items: center;

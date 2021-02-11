@@ -22,7 +22,7 @@
       </span>
     </div>
     <div class="signup-confirm__buttons">
-      <Button text="EDITAR DATOS" @handle-click="close()"/>
+      <Button text="EDITAR DATOS" color="#A81A1A" @handle-click="close()"/>
       <Button text="ENVIAR" @handle-click="register()"/>
     </div>
   </div>
@@ -97,7 +97,10 @@ export default {
   align-items: center;
   position: relative;
   min-height: 300px;
-  padding:10px 20px;
+  padding: 10px 20px;
+  @include mobile() {
+    padding: 10px;
+  }
   &__content {
     display: flex;
     flex-direction: column;
@@ -140,6 +143,11 @@ export default {
     display: flex;
     width: 100%;
     justify-content: space-around;
+    margin-top: 30px;
+    padding: 0px 100px;
+    @include mobile() {
+      padding: 0px 10px;
+    }
   }
 }
 </style>
