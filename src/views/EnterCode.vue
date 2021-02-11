@@ -1,11 +1,12 @@
 <template>
   <div class="enterCode">
      <img
+      v-if="!mobile"
       class="enterCode__image"
       src="@/assets/web/copa.png"
      />
-     <div class="enterCode__content">
-       <Title text="BIENVENIDO"/>
+     <div class="enterCode__content" v-if="!mobile">
+      <Title text="BIENVENIDO"/>
       <div class="enterCode__content2">
         <span class="enterCode__text">INGRESA EL CÓDIGO DE TU TAZO</span>
         <Input
@@ -18,7 +19,7 @@
         />
         <div class="enterCode__buttons-container">
           <div class="enterCode__recaptcha">
-            <vue-recaptcha
+          <vue-recaptcha
             sitekey="6LeepLgZAAAAAOEFbUH1LNlh-gpy4OfKV4zTIuoK"
             :loadRecaptchaScript="true"
             @verify="verifyRecaptcha"
@@ -36,6 +37,44 @@
         class="enterCode__image2"
         src="@/assets/web/tazos.png"
       />
+     </div>
+     <div class="enterCode__content" v-if="mobile">
+      <Title text="BIENVENIDO"/>
+      <span class="enterCode__text">INGRESA EL CÓDIGO DE TU TAZO</span>
+      <div class="enterCode__mobile-content">
+      <img
+        class="enterCode__image4"
+        src="@/assets/web/tazos2.png"
+      />
+      <div class="enterCode__mobile-content2">
+        <div style="width: 160px; margin-right: 20px;">
+          <Input
+          field="id"
+          :model="id"
+          @handle-input="setValue($event)"
+          placeholder="Escribe aquí tu código"
+          maxlength="10"
+          :error="error"
+        />
+        </div>
+        <Button text="ENVIAR" @handle-click="send()"/>
+      </div>
+      <div class="enterCode__mobile-recaptcha">
+          <vue-recaptcha
+            sitekey="6LeepLgZAAAAAOEFbUH1LNlh-gpy4OfKV4zTIuoK"
+            :loadRecaptchaScript="true"
+            @verify="verifyRecaptcha"
+            @expired="expiredRecaptcha"
+            size="100px"
+            language="es"
+          ></vue-recaptcha>
+          </div>
+      </div>
+      <img
+      v-if="mobile"
+      class="enterCode__image3"
+      src="@/assets/web/copa2.png"
+     />
      </div>
   </div>
 </template>
@@ -62,6 +101,11 @@ export default {
     Input,
     Button,
     VueRecaptcha
+  },
+  computed: {
+    mobile() {
+      return this.$store.getters.mobile;
+    },
   },
   methods: {
     send() {
@@ -125,6 +169,8 @@ export default {
 </script>
 
 <style lang="scss">
+@import "@/assets/scss/mixins.scss";
+
 .enterCode {
   display: flex;
   align-items: flex-start;
@@ -164,6 +210,10 @@ export default {
     font-family: MontrealHeavy;
     font-size: 20px;
     margin-bottom: 10px;
+    text-align: center;
+    @include mobile() {
+    font-size: 16px;
+    }
   }
   &__buttons-container {
     display: flex;
@@ -179,6 +229,31 @@ export default {
   }
   &__button {
     margin-top: 50px;
+  }
+  &__image3 {
+    height: 300px;
+  }
+  &__image4 {
+    height: 100px;
+    margin-left: -20px;
+  }
+  &__mobile-content {
+    width: 100%;
+    margin-top: 30px;
+    position: relative;
+  }
+  &__mobile-recaptcha {
+    position: absolute;
+    top: 20px;
+    right: -90px;
+    transform: scale(0.5);
+  }
+  &__mobile-content2 {
+    display: flex;
+    align-items: flex-start;
+    position: absolute;
+    top: -28px;
+    right: 0;
   }
 }
 </style>
