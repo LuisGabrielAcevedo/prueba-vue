@@ -17,7 +17,7 @@
           :error="error"
         />
         <div class="enterCode__buttons-container">
-          <div class="g-recaptcha">
+          <div class="enterCode__recaptcha">
             <vue-recaptcha
             sitekey="6LeepLgZAAAAAOEFbUH1LNlh-gpy4OfKV4zTIuoK"
             :loadRecaptchaScript="true"
@@ -27,7 +27,9 @@
             language="es"
           ></vue-recaptcha>
           </div>
-          <Button text="ENVIAR" @handle-click="send()"/>
+          <div class="enterCode__button">
+            <Button text="ENVIAR" @handle-click="send()"/>
+          </div>
         </div>
       </div>
       <img
@@ -129,11 +131,14 @@ export default {
   justify-content: center;
   &__image {
     margin-top: 10px;
-    height: 550px;
+    height: 836px;
+    margin-left: -170px;
+    margin-right: 100px;
   }
   &__image2 {
-     margin-top: 100px;
-     height: 250px;
+    margin-top: 100px;
+    height: 250px;
+    margin-left: -64px;
   }
   &__content {
     display: flex;
@@ -157,7 +162,7 @@ export default {
   }
   &__text{
     font-family: MontrealHeavy;
-    font-size: 22px;
+    font-size: 20px;
     margin-bottom: 10px;
   }
   &__buttons-container {
@@ -165,6 +170,15 @@ export default {
     flex-direction: column;
     align-items: flex-end;
     width: 100%;
+  }
+  &__recaptcha {
+    position: absolute;
+    top: 78px;
+    right: -59px;
+    transform: scale(0.62);
+  }
+  &__button {
+    margin-top: 50px;
   }
 }
 </style>

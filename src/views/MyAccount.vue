@@ -4,7 +4,7 @@
       <div class="myAccount__title">
         <Title text="MI CUENTA"/>
       </div>
-      <div>
+      <div class="myAccount__description-content">
         <span class="myAccount__description">¡Bienvenido, <span class="myAccount__redDescription">{{name}}</span>!</span><br>
         <span class="myAccount__description">este es el estado de tu cuenta al momento:</span>
       </div>
@@ -82,6 +82,7 @@ export default {
 </script>
 
 <style lang="scss">
+@import "@/assets/scss/mixins.scss";
 .myAccount {
   display: flex;
   flex-direction: column;
@@ -98,19 +99,36 @@ export default {
     border-bottom-left-radius: 25px;
     border-bottom-right-radius: 25px;
     padding: 20px 0 40px 0;
+    @include mobile() {
+      width: 100%;
+    }
+  }
+  &__description-content {
+     @include mobile() {
+      text-align: center;
+     }
   }
   &__description {
      font-family: MontrealHeavy;
      font-size: 24px;
+     line-height: 24px;
+     @include mobile() {
+       font-size: 18px;
+       text-align: center;
+     }
   }
   &__redDescription {
     color: #D62626;
   }
   &__footer {
     display: flex;
-    width: 400px;
+    width: 100%;
     align-items: center;
     justify-content: flex-end;
+    padding-right: 40px;
+    @include mobile() {
+      padding-right: 20px;
+    }
   }
   &__footer-row {
     display: flex;
@@ -120,6 +138,9 @@ export default {
     font-family: MontrealHeavy;
     font-size: 26px;
     margin-right: 10px;
+    @include mobile() {
+    font-size: 20px;
+    }
   }
   &__footer-row-content {
     background-color: white;

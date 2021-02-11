@@ -1,10 +1,12 @@
 <template>
-  <div class="textarea" :style="{'width': label ? '440px': '300px'}">
+  <div class="textarea" :style="{'width': label ? '420px': '300px'}">
     <div class="textarea__main-box">
-        <span class="textarea__label" v-if="label">
-        {{ label }}
-        <span v-if="required" class="textarea__required">*</span>
-        </span>
+        <div class="input__label-container" v-if="label">
+          <span class="input__label">
+          {{ label }}
+          <span v-if="required" class="input__required">*</span>
+          </span>
+        </div>
         <textarea
         v-model="componentModel"
         @input="input()"
@@ -116,54 +118,81 @@ export default {
 </script>
 
 <style lang="scss">
+@import "@/assets/scss/mixins.scss";
 .textarea {
     height: 68px;
     textarea::placeholder {
       color: #BCBCBC;
       font-family: MontrealBold;
       font-size: 15px;
+      @include mobile() {
+        font-size: 12px;
+      }
+    }
+    @include mobile() {
+      width: 100% !important;
     }
     &__main-box {
         display: flex;
         align-items: center;
         justify-content: flex-end;
     }
+    &__label-container {
+       width: 140px;
+       text-align: right;
+       @include mobile() {
+       width: 110px !important;
+       }
+    }
     &__field {
-        border-style: none;
-        background-color: white;
-        width: 300px;
-        height: 80px;
-        border-radius: 18px;
-        font-size: 17px;
-        padding: 4px 10px;
-        text-align: center;
+      border-style: none;
+      background-color: white;
+      width: 100%;
+      height: 80px;
+      border-radius: 18px;
+      font-size: 17px;
+      padding: 4px 10px;
+      text-align: center;
+      @include mobile() {
+        font-size: 12px;
+      }
     }
     textarea:focus {
-       outline: 0;
+      outline: 0;
     }
     &__messages {
-        display: flex;
-        align-items: center;
-        justify-content: flex-end;
-        line-height: 11px !important;
-        padding: 3px 0 0 10px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      line-height: 11px !important;
+      padding: 3px 0 0 10px;
     }
     &__error {
-        color: #D62626;
-        font-family: MontrealBold;
-        font-size: 11px;
+      color: #D62626;
+      font-family: MontrealBold;
+      font-size: 11px;
     }
     &__hint {
         color: #D62626;
         font-family: MontrealBold;
         font-size: 11px;
+        @include mobile() {
+          font-size: 10px;
+        }
     }
     &__label {
         font-family: MontrealHeavy;
         margin-right: 10px;
+        @include mobile() {
+          font-size: 14px;
+        }
     }
     &__messages-box {
-        width:322px;
+        padding-left: 100px;
+        width: 100%;
+        @include mobile() {
+          padding-left: 70px;
+        }
     }
 }
 

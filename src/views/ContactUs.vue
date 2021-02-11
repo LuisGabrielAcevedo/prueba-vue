@@ -145,23 +145,33 @@ export default {
   &__content {
     display: flex;
     flex-direction: column;
-    align-items: center;
     background: rgba(251,199, 2, 0.5);
     box-shadow: 7px 7px 7px #00000059;
     border-bottom-left-radius: 25px;
     border-bottom-right-radius: 25px;
     padding: 20px 100px 40px 100px;
+    @include mobile() {
+      width: 100%;
+      padding: 20px 10px 40px 10px;
+    }
   }
   &__title-container {
     margin-bottom: 40px;
   }
   &__button-container{
     margin-top: 40px;
+    display: flex;
+    justify-content: center;
   }
   &__text {
     font-family: MontrealHeavy;
     font-size: 20px;
     line-height: 20px;
+    text-align: center;
+    @include mobile() {
+      font-size: 16px;
+      line-height: 16px;
+    }
   }
   &__form {
     margin-top: 20px;

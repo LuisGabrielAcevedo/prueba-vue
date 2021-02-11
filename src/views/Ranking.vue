@@ -2,6 +2,9 @@
   <div class="ranking">
     <div class="ranking__content">
       <Title text="RANKING"/>
+      <div class="ranking__date-content" >
+        <span class="ranking__date">Acumulado parcial: {{t}}</span>
+      </div>
       <div class="table">
         <div class="table__header">
           <span class="table__header-item">POS.</span>
@@ -9,7 +12,10 @@
           <span class="table__header-item">CANT. CÓDIGOS</span>
         </div>
         <div class="table__data">
-          <div class="table__data-row" v-for="(item, i) in data" :key="i">
+          <div class="table__data-row" v-for="(item, i) in data" :key="i"                 :class="{
+            'table__data-row--selected':
+              item.current
+            }">
             <span class="table__data-row-item">{{ item.position }}</span>
             <span class="table__data-row-item">{{item.name}}</span>
             <span class="table__data-row-item">{{8}}</span>
@@ -35,6 +41,9 @@ export default {
     mobile() {
       return this.$store.getters.mobile;
     },
+    t() {
+      return this.time ? this.time.split(' ')[1] : ''
+    },
     user() {
       console.log(this.$store.getters.user)
       return this.$store.getters.user;
@@ -44,18 +53,20 @@ export default {
     getRanking() {
       Ranking().then(resp => {
         this.data = resp.data
+        this.time = resp.date
       })
     }
   },
   data() {
     return {
-      data: []
+      data: [], time: null
     };
   }
 }
 </script>
 
 <style lang="scss">
+@import "@/assets/scss/mixins.scss";
 .ranking {
   display: flex;
   flex-direction: column;
@@ -69,6 +80,18 @@ export default {
     border-bottom-left-radius: 25px;
     border-bottom-right-radius: 25px;
     padding: 20px 0 40px 0;
+  }
+  &__date {
+    color: #D62626;
+    font-family: MontrealBold;
+    font-size: 14px;
+  }
+  &__date-content {
+    background-color: white;
+    border: 1px solid #D62626;
+    border-radius: 25px;
+    padding: 4px 20px;
+    margin-top: 20px;
   }
 }
 </style>

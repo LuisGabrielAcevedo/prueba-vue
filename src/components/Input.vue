@@ -139,6 +139,9 @@ export default {
       color: #BCBCBC;
       font-family: MontrealBold;
       font-size: 15px;
+      @include mobile() {
+        font-size: 12px;
+      }
     }
     @include mobile() {
       width: 100% !important;
