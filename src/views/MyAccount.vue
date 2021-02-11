@@ -17,10 +17,10 @@
         </div>
         <div class="table__data">
           <div class="table__data-row" v-for="(item, i) in data" :key="i">
-            <span class="table__data-row-item">{{ i + 1 }}</span>
+            <span class="table__data-row-item">{{i + 1}}</span>
             <span class="table__data-row-item">{{item.code}}</span>
-            <span class="table__data-row-item">{{item.date}}</span>
-            <span class="table__data-row-item">{{item.award}}</span>
+            <span class="table__data-row-item">{{formatDate(item.created_at)}}</span>
+            <span class="table__data-row-item">{{item.result || '-'}}</span>
           </div>
         </div>
       </div>
@@ -38,6 +38,7 @@
 
 <script>
 import Title from '../components/Title'
+import {GetCodes} from '../api'
 export default {
   name: 'MyAccount',
   components: {
@@ -45,38 +46,7 @@ export default {
   },
   data() {
     return {
-      data: [
-        {
-          code: "A1BCD23E4",
-          date: "21-09-2020",
-          award: "Recarga"
-        },
-        {
-          code: "A1BCD23E4",
-          date: "21-09-2020",
-          award: "Recarga"
-        },
-        {
-          code: "A1BCD23E4",
-          date: "21-09-2020",
-          award: "Recarga"
-        },
-        {
-          code: "A1BCD23E4",
-          date: "21-09-2020",
-          award: "Recarga"
-        },
-        {
-          code: "A1BCD23E4",
-          date: "21-09-2020",
-          award: "Recarga"
-        },
-        {
-          code: "A1BCD23E4",
-          date: "21-09-2020",
-          award: "Recarga"
-        }
-      ]
+      data: []
     };
   },
   computed: {
@@ -90,6 +60,24 @@ export default {
       return this.user ? this.user.name : "";
     }
   },
+  mounted() {
+    this.getCodes()
+  },
+  methods: {
+    getCodes() {
+      GetCodes().then(resp => {
+        this.data = resp.data
+      }) 
+    }, 
+    formatDate(date) {
+      if (date) {
+        const splitDate = date.split(" ")[0].split("-");
+        return `${splitDate[2]}/${splitDate[1]}/${splitDate[0]}`;
+      } else {
+        return "";
+      }
+    },
+  }
 }
 </script>
 

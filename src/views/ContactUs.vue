@@ -37,7 +37,7 @@ import Title from '../components/Title'
 import Button from '../components/Button'
 import Select from '../components/Select'
 import Textarea from '../components/Textarea'
-
+import {SaveMessage} from '../api'
 
 export default {
   name: 'ContactUs',
@@ -65,6 +65,47 @@ export default {
         this.message.message && !(this.message.message.length > 10)
           ? "El mensaje debe tener mas de 10 carácteres."
           : "";
+    },
+    send() {
+      if (!this.message.message || !this.message.topic) {
+        this.$store.dispatch("setAlert", {
+          buttonLabel: "Aceptar",
+          showClose: true,
+          type:'INFO',
+          message: "¡Debes completar los campos requeridos!.",
+        });
+      } else {
+        if (!this.error) {
+          this.loading = true;
+          const topic = this.topics.find((t) => t.text === this.message.topic);
+          SaveMessage({
+            ...this.message,
+            topic: topic.value,
+          })
+            .then(() => {
+              this.loading = false;
+              this.$store.dispatch("setAlert", {
+                showClose: true,
+                type:'SUCCESS',
+                title:
+                  "¡EL MENSAJE FUE ENVIADO EXITOSAMENTE!",
+              });
+              this.message = {
+                message: "",
+                topic: "",
+              };
+            })
+            .catch(() => {
+              this.loading = false;
+              this.$store.dispatch("setAlert", {
+                buttonLabel: "Aceptar",
+                showClose: true,
+                type:'INFO',
+                message: "¡Hubo un problema!",
+              });
+            });
+        }
+      }
     },
   },
   data() {

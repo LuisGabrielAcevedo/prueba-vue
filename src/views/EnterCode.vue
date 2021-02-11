@@ -92,7 +92,6 @@ export default {
           this.id = "";
           this.loading = false;
           this.$store.dispatch("setAlert", {
-            buttonLabel: "Enviar",
             showClose: true,
             type:'SUCCESS',
             title: '¡EL CÓDIGO FUE REGISTRADO CORRECTAMENTE!',

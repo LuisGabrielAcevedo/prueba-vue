@@ -50,7 +50,10 @@ export default {
   methods: {
     onResize() {
       this.$store.dispatch("setMobile", window.innerWidth <= 940);
-    }
+    },
+    goTo(path) {
+      if (this.$route.path !== `/${path}`) this.$router.push(path);
+    },
   }, 
   data() {
     return {
@@ -69,7 +72,6 @@ export default {
 <style lang="scss">
 .app {
   position: fixed;
-  overflow: hidden;
   top: 0;
   bottom: 0;
   left: 0;
@@ -77,6 +79,7 @@ export default {
   background-color: rgba(251,199, 2, 0.5);
   &__image-content {
     position: absolute;
+    overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -88,7 +91,7 @@ export default {
     background-color: rgba(251,199, 2);
   }
   &__image {
-    height: 100%;
+    height: 100vh;
   }
   &__content {
     position: absolute;

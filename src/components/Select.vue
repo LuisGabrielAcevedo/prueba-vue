@@ -1,10 +1,12 @@
 <template>
   <div class="select">
     <div class="select__main-box">
-        <span class="select__label">
-        {{ label }}
-        <span v-if="required" class="select__required">*</span>
-        </span>
+        <div class="select__label-container" v-if="label">
+          <span class="select__label">
+          {{ label }}
+          <span v-if="required" class="select__required">*</span>
+          </span>
+        </div>
         <div
           class="select__field"
           @click="focus()"
@@ -12,7 +14,7 @@
             select__focus: open
           }"
          >
-          <span v-if="componentModel">{{ componentModel }}</span>
+          <span v-if="componentModel" class="select__text">{{ componentModel }}</span>
           <span class="select__placeholder" v-else>{{ placeholder }}</span>
           <span class="select__icon-content" @click="focus()">
             <i class="fas fa-caret-down select__icon"></i>
@@ -108,20 +110,32 @@ export default {
 </script>
 
 <style lang="scss">
+@import "@/assets/scss/mixins.scss";
+
 .select {
-  width: 440px;
+  width: 420px;
   height: 60px;
+  @include mobile() {
+    width: 100% !important;
+  }
   &__main-box {
     display: flex;
     align-items: center;
     justify-content: flex-end;
+  }
+  &__label-container {
+    width: 140px;
+    text-align: right;
+    @include mobile() {
+      width: 110px !important;
+    }
   }
   &__field {
     display: flex;
     align-items: center;
     justify-content: center;
     background-color: white;
-    width: 300px;
+    width: 100%;
     height: 34px;
     border-radius: 18px;
     font-size: 17px;
@@ -132,11 +146,17 @@ export default {
   &__label {
     font-family: MontrealHeavy;
     margin-right: 10px;
+    @include mobile() {
+      font-size: 14px;
+    }
   }
   &__placeholder{
     color: #BCBCBC;
     font-family: MontrealBold;
     font-size: 15px;
+    @include mobile() {
+      font-size: 12px;
+    }
   }
   &__icon-content {
     position: absolute;
@@ -156,9 +176,6 @@ export default {
     cursor: pointer;
     border: 0.5px solid #9d9d9d;
     padding: 2px;
-    // @include mobile() {
-    //   top: 74px;
-    // }
   }
   &__box {
     display: flex;
@@ -173,12 +190,14 @@ export default {
     color: black;
     padding: 2px;
     font-family: MontrealHeavy;
-    // @include mobile() {
-    //   padding: 6px;
-    // }
   }
   &__option:hover {
     background: #eee;
+  }
+  &__text {
+    @include mobile() {
+      font-size: 12px;
+    }
   }
 }
 </style>

@@ -11,8 +11,38 @@ import SignUp from "../views/SignUp.vue";
 import TermsAndConditions from "../views/TermsAndConditions.vue";
 import AppContent from "../views/AppContent.vue";
 import ContactUs from "../views/ContactUs.vue";
+import store from "@/store";
+// import { Activity } from "../api";
 
 Vue.use(VueRouter);
+
+const getActivity = async () => {
+  return null;
+  // try {
+  //   const resp = await Activity();
+  //   if (resp.data.days > 0) return "/muy-pronto-comienza-la-promo";
+  //   if (resp.data.days === 0) return "/";
+  //   return null;
+  // } catch (err) {
+  //   return "/muy-pronto-comienza-la-promo";
+  // }
+};
+
+const activityGuard = async (to, from, next) => {
+  console.log(to.path, from.path);
+  const redirect = await getActivity();
+  redirect ? next(redirect) : next();
+};
+
+const authGuard = async (to, from, next) => {
+  const isAuthenticated = !!store.state.token;
+  isAuthenticated ? next() : next("/ingresar");
+};
+
+const authGuardNot = async (to, from, next) => {
+  const isAuthenticated = !!store.state.token;
+  !isAuthenticated ? next() : next("/ingresar-codigo");
+};
 
 const routes = [
   {
@@ -24,6 +54,7 @@ const routes = [
     path: "/",
     name: "home",
     component: AppContent,
+    beforeEnter: activityGuard,
     children: [
       {
         path: "",
@@ -33,16 +64,19 @@ const routes = [
         path: "ingresar",
         name: "signIn",
         component: SignIn,
+        beforeEnter: authGuardNot,
       },
       {
         path: "registrarse",
         name: "signUp",
         component: SignUp,
+        beforeEnter: authGuardNot,
       },
       {
         path: "ranking",
         name: "ranking",
         component: Ranking,
+        beforeEnter: authGuard,
       },
       {
         path: "terminos-y-condiciones",
@@ -53,6 +87,7 @@ const routes = [
         path: "mi-cuenta",
         name: "myAccount",
         component: MyAccount,
+        beforeEnter: authGuard,
       },
       {
         path: "como-particiar",
@@ -63,6 +98,7 @@ const routes = [
         path: "ingresar-codigo",
         name: "enterCode",
         component: EnterCode,
+        beforeEnter: authGuard,
       },
       {
         path: "premios",
@@ -73,6 +109,15 @@ const routes = [
         path: "contactenos",
         name: "contactUs",
         component: ContactUs,
+        beforeEnter: authGuard,
+      },
+      {
+        path: "*",
+        redirect: "/ingresar",
+      },
+      {
+        path: "",
+        redirect: "/ingresar",
       },
     ],
   },

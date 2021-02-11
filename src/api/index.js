@@ -69,3 +69,11 @@ export const CodeDebit = async () => {
   });
   return resp.data;
 };
+
+export const Activity = async () => {
+  const resp = await Vue.axios({
+    method: "Get",
+    url: "/activity-status",
+  });
+  return resp.data;
+};

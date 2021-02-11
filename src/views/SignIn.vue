@@ -1,9 +1,10 @@
 <template>
   <div class="signIn">
     <div class="signIn__content">
-      <span class="signIn__title">¡ENCUENTRA EN LOS EMPAQUES DE MARGARITA LOS TAZOS CON</span>
-      <span class="signIn__title">LOS <span class="signIn__red-title">GOLAZOS ICÓNICOS</span> DE LA UEFA CHAMPIONS LEAGUE Y</span>
-      <span class="signIn__title">PARTICIPA POR INCREIBLES PREMIOS!</span>
+      <span v-if="!mobile" class="signIn__title">¡ENCUENTRA EN LOS EMPAQUES DE MARGARITA LOS TAZOS CON</span>
+      <span v-if="!mobile" class="signIn__title">LOS <span class="signIn__red-title">GOLAZOS ICÓNICOS</span> DE LA UEFA CHAMPIONS LEAGUE Y</span>
+      <span v-if="!mobile" class="signIn__title">PARTICIPA POR INCREIBLES PREMIOS!</span>
+      <span v-if="mobile" class="signIn__title">¡ENCUENTRA EN LOS EMPAQUES DE MARGARITA LOS TAZOS CON LOS <span class="signIn__red-title">GOLAZOS ICÓNICOS</span> DE LA UEFA CHAMPIONS LEAGUE Y PARTICIPA POR INCREIBLES PREMIOS!</span>
     <img
       class="signIn__image"
       src="@/assets/web/grupo.png"
@@ -44,6 +45,11 @@ export default {
   components: {
     Button,
     Input
+  },
+  computed: {
+    mobile() {
+      return this.$store.getters.mobile;
+    },
   },
   data() {
     return {
@@ -107,11 +113,15 @@ export default {
 </script>
 
 <style lang="scss">
+@import "@/assets/scss/mixins.scss";
 .signIn {
   display: flex;
   align-items: center;
   justify-content: flex-end;
   padding-right: 280px;
+  @include mobile() {
+    padding: 0;
+  }
   &__content {
     display: flex;
     flex-direction: column;
@@ -121,14 +131,31 @@ export default {
     border-bottom-left-radius: 25px;
     border-bottom-right-radius: 25px;
     padding: 40px 40px 40px 40px;
+    @include mobile() {
+      padding: 10px 4px;
+      background-color: transparent;
+      width: 100%;
+      border-bottom-left-radius: 0px;
+      border-bottom-right-radius: 0px;
+      box-shadow: none;
+    }
   }
   &__image {
     height: 160px;
+    @include mobile() {
+      height: 80px;
+    }
   }
   &__title {
     font-family: MontrealHeavy;
     font-size: 18px;
     line-height: 22px;
+    @include mobile() {
+      font-family: MontrealHeavy;
+      font-size: 14px;
+      line-height: 14px;
+      text-align: center;
+    }
   }
   &__red-title {
     color: #D52626;
@@ -144,6 +171,9 @@ export default {
     font-family: MontrealHeavy;
     font-size: 30px;
     margin: 20px 0;
+    @include mobile() {
+      font-size: 18px;
+    }
   }
   &__button-container {
     margin-bottom: 6px;

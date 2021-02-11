@@ -101,22 +101,28 @@
           :required="false"
           :error="errors.email"
         />
-        <div style="width: 440px;"></div>
+        <div style="width: 420px;"></div>
       </div>
       <span class="signUp__description">Es importante que verifiques tu email. En caso de ser ganador sólo se te contactará por éste medio y si tu email no es correcto no podrás recibir el premio.</span>
       <div class="signUp__footer">
         <div>
           <div class="signUp__radio-container">
-            <Radio @handle-click="toggleTerms()" :value="terms"/>
+            <div style="width:30px;">
+              <Radio @handle-click="toggleTerms()" :value="terms"/>
+            </div>
             <span class="signUp__radio-text">Acepto los <span class="signUp__radio-text-action" @click="goTo('/terminos-y-condiciones')">términos y condiciones</span> de la promoción.</span>
           </div>
           <div class="signUp__radio-container">
-            <Radio @handle-click="toggleTerms2()" :value="terms2"/>
+            <div style="width:30px;">
+              <Radio @handle-click="toggleTerms2()" :value="terms2"/>
+            </div>
             <span class="signUp__radio-text">Acepto los <span class="signUp__radio-text-action" @click="goTo('/terminos-y-condiciones')">términos y condiciones</span> de manejo de datos.</span>
           </div>
           <div class="signUp__radio-container">
             <div style="width:40px;">
-              <Radio @handle-click="toggleTerms3()" :value="terms3"/>
+              <div style="width:30px;">
+                <Radio @handle-click="toggleTerms3()" :value="terms3"/>
+              </div>
             </div>
             <span class="signUp__radio-text">Declaro que no soy trabajador o colaborador de PepsiCo, y/o sus compañías asociadas ni de los distribuidores de PepsiCo.</span>
           </div>
@@ -378,14 +384,14 @@ export default {
   &__content {
     display: flex;
     flex-direction: column;
-    align-items: center;
     background: rgba(251,199, 2, 0.5);
     box-shadow: 7px 7px 7px #00000059;
     border-bottom-left-radius: 25px;
     border-bottom-right-radius: 25px;
     padding: 20px 60px 40px 60px;
-    @include tablet() {
+    @include mobile() {
      padding: 20px 20px 40px 20px;
+     width: 100%;
     }
   }
   &__radio-container {
@@ -393,15 +399,24 @@ export default {
     align-content: center;
     margin-bottom: 10px;
     width: 400px;
+    @include mobile() {
+      width: 100%;
+    }
   }
   &__description {
     font-family: MontrealBold;
     font-size: 12px;
     margin-bottom: 20px;
+    @include mobile() {
+      font-size: 10px;
+    }
   }
   &__radio-text {
     font-family: MontrealBold;
     font-size: 12px;
+    @include mobile() {
+      font-size: 10px;
+    }
   }
   &__radio-text-action {
     text-decoration: underline;
@@ -420,6 +435,10 @@ export default {
     display: flex;
     justify-content: space-around;
     width: 100%;
+    @include mobile() {
+      flex-direction: column;
+      align-items: center;
+    }
   }
 }
 </style>
