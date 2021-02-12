@@ -8,7 +8,7 @@
     />
     <img
       v-if="login && !mobile"
-      class="app__image"
+      class="app__image1"
       src="@/assets/web/fondo-ingresar.jpg"
     />
     <img
@@ -89,6 +89,7 @@ export default {
 
 
 <style lang="scss">
+@import "@/assets/scss/mixins.scss";
 .app {
   position: fixed;
   top: 0;
@@ -109,8 +110,22 @@ export default {
     z-index: 1;
     background-color: rgba(251,199, 2);
   }
+  &__image1 {
+    margin-top: 200px;
+    @media only screen and(max-width: 1500px) {
+      margin-top: 0;
+      height: 100vh;
+      width: 1500px;
+    }
+    @media only screen and(max-height: 700px) {
+      height: 700px !important;
+    }
+    
+  }
   &__image {
-    height: 100vh;
+    @include mobile() {
+      transform: scale(0.8);
+    }
   }
   &__image2 {
     height: 100vh;

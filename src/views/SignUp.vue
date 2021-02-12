@@ -103,7 +103,7 @@
         />
         <div style="width: 420px;"></div>
       </div>
-      <span class="signUp__description">Es importante que verifiques tu email. En caso de ser ganador sólo se te contactará por éste medio y si tu email no es correcto no podrás recibir el premio.</span>
+      <span class="signUp__description">Es importante que verifiques tus datos especialmente número de celular y operador pues en caso de ser ganador, sólo se te contactará por esté medio.</span>
       <div class="signUp__footer">
         <div>
           <div class="signUp__radio-container">

@@ -137,14 +137,14 @@ export default {
       SaveCodes({
         code: this.id,
       })
-        .then(() => {
+        .then((respu) => {
            GetStatus().then(resp => {
             this.id = "";
             this.loading = false;
             this.$store.dispatch("setAlert", {
             showClose: true,
             type:'SUCCESS',
-            title: '¡EL CÓDIGO FUE REGISTRADO CORRECTAMENTE!',
+            title: respu.data.mensaje,
             message: resp.data,
           });
           })

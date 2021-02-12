@@ -132,7 +132,7 @@ export default {
         isVisible: () => this.token
       },
       {
-        name: this.token ? 'TERM. Y COND.' : "TÉRMINOS Y CONDICIONES",
+        name: this.token ? "TERM. Y COND." : "TÉRMINOS Y CONDICIONES",
         path: "/terminos-y-condiciones",
         isVisible: () => true
       },
@@ -187,10 +187,12 @@ export default {
 <style lang="scss">
 @import "@/assets/scss/mixins.scss";
 .header {
+    display: flex;
+    justify-content: center;
     padding: 120px;
+    width: 100%;
     padding-top: 30px;
     padding-bottom: 0;
-    width: 100%;
     @include tablet() {
       padding: 20px;
       padding-top: 30px;
@@ -202,8 +204,8 @@ export default {
     &__content { 
         position: relative;
         margin: 0 auto;
-        height: 84px;
-        max-width: 1200px;
+        height: 94px;
+        min-width: 1150px;
         background: #D62626 0% 0% no-repeat padding-box;
         border-top: 4px solid #f31c14;
         border-bottom: 4px solid #c4140c;
@@ -216,6 +218,7 @@ export default {
         // padding-right: 70px;
         @include tablet() {
           padding-right: 24px;
+          min-width: 100%;
         }
         @include mobile() {
           padding-right: 24px;
@@ -275,7 +278,7 @@ export default {
     }
     &__web-route-text {
       font-family: MontrealBold;
-      font-size: 14px;
+      font-size: 16px;
       color: white;
     }
     &--web-route-text-selected {

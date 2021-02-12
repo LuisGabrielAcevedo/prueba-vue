@@ -155,6 +155,7 @@ export default {
       text-align: center;
       @include mobile() {
         font-size: 12px;
+        height: 30px;
       }
     }
     textarea:focus {

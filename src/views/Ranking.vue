@@ -18,7 +18,7 @@
             }">
             <span class="table__data-row-item">{{ item.position }}</span>
             <span class="table__data-row-item">{{item.name}}</span>
-            <span class="table__data-row-item">{{8}}</span>
+            <span class="table__data-row-item">{{item.total_codes}}</span>
           </div>
         </div>
       </div>

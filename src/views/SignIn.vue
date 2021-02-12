@@ -20,7 +20,9 @@
           :error="error"
         />
       </div>
-      <Button text="INGRESAR" @handle-click="signIn()"/>
+      <div class="signIn__btn">
+        <Button text="INGRESAR" @handle-click="signIn()"/>
+      </div>
     </div>
      <img
       class="signIn__start-image-2"
@@ -118,7 +120,7 @@ export default {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  padding-right: 280px;
+  padding-right: 60px;
   @include mobile() {
     padding: 0;
   }
@@ -160,12 +162,13 @@ export default {
   &__red-title {
     color: #D52626;
   }
-  &__start-image {
-    height: 26px;
-  }
   &__start-image-2 {
     height: 26px;
     margin-top: -14px;
+    @include mobile() {
+      height: 20px;
+      margin-top: -20px;
+    }
   }
   &__signInTitle {
     font-family: MontrealHeavy;
@@ -173,6 +176,7 @@ export default {
     margin: 20px 0;
     @include mobile() {
       font-size: 18px;
+      margin: 10px 0 20px 0;
     }
   }
   &__button-container {
@@ -180,19 +184,31 @@ export default {
   }
   &__endMessage {
     font-family: MontrealBold;
-    font-size: 12px
+    font-size: 12px;
+    @include mobile() {
+      font-size: 10px;
+    }
   }
   &__signUnTitle {
     font-family: MontrealHeavy;
     font-size: 20px;
     margin: 6px 0;
+    @include mobile() {
+      font-size: 16px;
+    }
   }
   &__form {
     display: flex;
-    align-items: flex-start;
+    align-items: center;
+    @include mobile() {
+      margin-top: -16px;
+    }
   }
   &__input {
     margin-right: 10px;
+  }
+  &__btn {
+    margin-bottom: 36px;
   }
 }
 </style>

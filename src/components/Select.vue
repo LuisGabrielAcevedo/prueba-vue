@@ -142,6 +142,9 @@ export default {
     padding: 4px 10px;
     cursor: pointer;
     position: relative;
+    @include mobile() {
+      height: 30px;
+    }
   }
   &__label {
     font-family: MontrealHeavy;
