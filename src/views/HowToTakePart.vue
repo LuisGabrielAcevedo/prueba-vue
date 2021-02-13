@@ -1,6 +1,9 @@
 <template>
   <div class="howToTakePart">
-    <Title text="¿CÓMO PARTICIPAR?"/>
+    <img
+      class="howToTakePart__title"
+      src="@/assets/web/titles/Titulo_Como_partic.png"
+    />
     <img
       v-if="!mobile"
       class="howToTakePart__image2"
@@ -15,13 +18,9 @@
 </template>
 
 <script>
-import Title from '../components/Title'
 export default {
   name: 'HowToTakePart',
-  components: {
-    Title
-  },
-    computed: {
+  computed: {
     mobile() {
       return this.$store.getters.mobile;
     },
@@ -36,6 +35,12 @@ export default {
   flex-direction: column;
   align-items: center;
   padding-top: 20px;
+  &__title {
+    height: 90px;
+    @include mobile() {
+      height: 50px;
+    }
+  }
   &__image2 {
     margin-top: 20px;
     height: 500px;

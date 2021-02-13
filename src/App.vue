@@ -111,7 +111,8 @@ export default {
     background-color: rgba(251,199, 2);
   }
   &__image1 {
-    margin-top: 200px;
+    margin-top: 100px;
+    transform: scale(0.99);
     @media only screen and(max-width: 1500px) {
       margin-top: 0;
       height: 100vh;
@@ -124,7 +125,7 @@ export default {
   }
   &__image {
     @include mobile() {
-      transform: scale(0.8);
+      height: 100%;
     }
   }
   &__image2 {

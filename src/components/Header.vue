@@ -3,7 +3,7 @@
     <div class="header__content">
       <img
       class="header__image"
-      src="@/assets/web/preview-logo.png"
+      src="@/assets/web/logo-blanco.png"
      />
      <div v-if="token && !mobile" class="header__closeContainer" @click="logout()">
        <span class="header__closeText">CERRAR SESIÓN</span>
@@ -47,7 +47,7 @@
         </div>
         <img
       class="drawer__image"
-      src="@/assets/web/preview-logo.png"
+      src="@/assets/web/logo-blanco.png"
      />
      <div v-for="(route, k) in webRoutes" :key="k">
             <div 
@@ -145,6 +145,11 @@ export default {
         name: "MI CUENTA",
         path: "/mi-cuenta",
         isVisible: () => this.token
+      },
+      {
+        name: "CERRAR SESIÓN",
+        clickAction: () => {this.logout()},
+        isVisible: () => this.token && this.mobile
       }
     ];
   },
@@ -228,7 +233,7 @@ export default {
     }
     &__closeContainer {
       position: absolute;
-      top: 85px;
+      top: 92px;
       right: 24px;
       background-color: #D62626;
       border-radius: 25px;
@@ -324,7 +329,6 @@ export default {
     height: 50px;
     margin-top: 20px;
     margin-bottom: 40px;
-
   }
 }
 

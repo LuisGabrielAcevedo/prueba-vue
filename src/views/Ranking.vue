@@ -1,7 +1,10 @@
 <template>
   <div class="ranking">
     <div class="ranking__content">
-      <Title text="RANKING"/>
+      <img
+        class="ranking__title"
+        src="@/assets/web/titles/Titulo_Ranking.png"
+      />
       <div class="ranking__date-content" >
         <span class="ranking__date">Acumulado parcial: {{t}}</span>
       </div>
@@ -28,12 +31,8 @@
 
 <script>
 import {Ranking} from '../api'
-import Title from '../components/Title'
 export default {
   name: 'Ranking',
-  components: {
-    Title
-  },
   mounted() {
     this.getRanking()
   },
@@ -42,7 +41,8 @@ export default {
       return this.$store.getters.mobile;
     },
     t() {
-      return this.time ? this.time.split(' ')[1] : ''
+      // return this.time ? this.time.split(' ')[1] : ''
+      return this.time
     },
     user() {
       console.log(this.$store.getters.user)
@@ -71,27 +71,46 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
+  &__title {
+    height: 90px;
+    @include mobile() {
+      height: 50px;
+    }
+  }
   &__content {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background: rgba(251,199, 2, 0.5);
+    background: rgba(251,199, 2, 0.7);
     box-shadow: 7px 7px 7px #00000059;
     border-bottom-left-radius: 25px;
     border-bottom-right-radius: 25px;
     padding: 20px 0 40px 0;
+    @include mobile() {
+      margin: 0 20px 20px 20px;
+      padding: 20px 10px 40px 10px;
+    }
   }
   &__date {
     color: #D62626;
     font-family: MontrealBold;
     font-size: 14px;
+    text-align: center;
+    @include mobile{
+      font-size: 10px;
+    }
   }
   &__date-content {
     background-color: white;
     border: 1px solid #D62626;
+    display: flex;
+    align-items: center;
     border-radius: 25px;
     padding: 4px 20px;
     margin-top: 20px;
+    @include mobile{
+      padding: 4px 10px;
+    }
   }
 }
 </style>

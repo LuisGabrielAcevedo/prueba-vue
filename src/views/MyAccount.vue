@@ -1,23 +1,24 @@
 <template>
   <div class="myAccount">
     <div class="myAccount__content">
-      <div class="myAccount__title">
-        <Title text="MI CUENTA"/>
-      </div>
+      <img
+        class="myAccount__title"
+        src="@/assets/web/titles/Titulo_Mi_Cuenta.png"
+      />
       <div class="myAccount__description-content">
         <span class="myAccount__description">¡Bienvenido, <span class="myAccount__redDescription">{{name}}</span>!</span><br>
         <span class="myAccount__description">este es el estado de tu cuenta al momento:</span>
       </div>
       <div class="table">
         <div class="table__header">
-          <span class="table__header-item">CANT.</span>
+          <span v-if="!mobile" class="table__header-item">CANT.</span>
           <span class="table__header-item">CÓDIGO</span>
           <span class="table__header-item">FECHA</span>
           <span class="table__header-item">PREMIO</span>
         </div>
         <div class="table__data">
           <div class="table__data-row" v-for="(item, i) in data" :key="i">
-            <span class="table__data-row-item">{{i + 1}}</span>
+            <span v-if="!mobile" class="table__data-row-item">{{i + 1}}</span>
             <span class="table__data-row-item">{{item.code}}</span>
             <span class="table__data-row-item">{{formatDate(item.created_at)}}</span>
             <span class="table__data-row-item" :class="{
@@ -39,13 +40,9 @@
 </template>
 
 <script>
-import Title from '../components/Title'
 import {GetCodes} from '../api'
 export default {
   name: 'MyAccount',
-  components: {
-    Title
-  },
   data() {
     return {
       data: []
@@ -90,24 +87,29 @@ export default {
   flex-direction: column;
   align-items: center;
   &__title {
+    height: 90px;
     margin-bottom: 20px;
+    @include mobile() {
+      height: 50px;
+    }
   }
   &__content {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background: rgba(251,199, 2, 0.5);
+    background: rgba(251,199, 2, 0.7);
     box-shadow: 7px 7px 7px #00000059;
     border-bottom-left-radius: 25px;
     border-bottom-right-radius: 25px;
     padding: 20px 0 40px 0;
     @include mobile() {
-      width: 100%;
+      margin: 0 20px 20px 20px;
     }
   }
   &__description-content {
      @include mobile() {
       text-align: center;
+      padding: 0 10px;
      }
   }
   &__description {
@@ -115,7 +117,8 @@ export default {
      font-size: 24px;
      line-height: 24px;
      @include mobile() {
-       font-size: 18px;
+       font-size: 14px;
+       line-height: 14px;
        text-align: center;
      }
   }
@@ -139,21 +142,25 @@ export default {
   &__footer-row-text {
     font-family: MontrealHeavy;
     font-size: 26px;
-    margin-right: 10px;
+    margin-right: 20px;
     @include mobile() {
-    font-size: 20px;
+      font-size: 14px;
     }
   }
   &__footer-row-content {
-    background-color: white;
-    border: 1px solid #D62626;
-    padding: 0 30px;
-    border-radius: 25px;
+    border-top: 2px solid white;
+    border-bottom: 2px solid white;
+    padding: 0 10px;
   }
   &__footer-row-number {
     color: #D62626;
     font-family: MontrealHeavy;
     font-size: 26px;
+    line-height: 26px;
+    @include mobile() {
+      font-size: 18px;
+      line-height: 18px;
+    }
   }
 }
 </style>

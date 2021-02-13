@@ -6,7 +6,10 @@
       src="@/assets/web/copa.png"
      />
      <div class="enterCode__content" v-if="!mobile">
-      <Title text="BIENVENIDO"/>
+      <img
+      class="enterCode__title"
+      src="@/assets/web/titles/Titulo_Bienvenido.png"
+      />
       <div class="enterCode__content2">
         <span class="enterCode__text">INGRESA EL CÓDIGO DE TU TAZO</span>
         <Input
@@ -39,7 +42,10 @@
       />
      </div>
      <div class="enterCode__content" v-if="mobile">
-      <Title text="BIENVENIDO"/>
+      <img
+      class="enterCode__title"
+      src="@/assets/web/titles/Titulo_Bienvenido.png"
+     />
       <span class="enterCode__text">INGRESA EL CÓDIGO DE TU TAZO</span>
       <div class="enterCode__mobile-content">
       <img
@@ -47,7 +53,7 @@
         src="@/assets/web/tazos2.png"
       />
       <div class="enterCode__mobile-content2">
-        <div style="width: 160px; margin-right: 20px;">
+        <div style="width: 130px; margin-right: 20px;">
           <Input
           field="id"
           :model="id"
@@ -57,7 +63,9 @@
           :error="error"
         />
         </div>
-        <Button text="ENVIAR" @handle-click="send()"/>
+        <div style="margin-top: 1px">
+          <Button text="ENVIAR" @handle-click="send()"/>
+        </div>
       </div>
       <div class="enterCode__mobile-recaptcha">
           <vue-recaptcha
@@ -80,7 +88,6 @@
 </template>
 
 <script>
-import Title from '../components/Title'
 import Input from '../components/Input'
 import Button from '../components/Button'
 import VueRecaptcha from "vue-recaptcha";
@@ -96,11 +103,7 @@ export default {
       recaptchaCode: true,
     };
   },
-  mounted() {
-   
-  },
   components: {
-    Title,
     Input,
     Button,
     VueRecaptcha
@@ -180,6 +183,13 @@ export default {
   display: flex;
   align-items: flex-start;
   justify-content: center;
+  &__title {
+    height: 100px;
+    @include mobile() {
+      height: 50px;
+      margin-bottom: 20px;
+    }
+  }
   &__image {
     margin-top: 10px;
     height: 836px;
@@ -196,12 +206,16 @@ export default {
     width: 380px;
     flex-direction: column;
     align-items: center;
-    background: rgba(251,199, 2, 0.5);
+    background: rgba(251,199, 2, 0.7);
     box-shadow: 7px 7px 7px #00000059;
     border-bottom-left-radius: 25px;
     border-bottom-right-radius: 25px;
     padding: 20px 20px 10px 20px;
     position: relative;
+    margin-bottom: 20px;
+    @include mobile() {
+      margin: 0 20px 20px 20px;
+    }
   }
   &__content2 {
     position: absolute;
@@ -217,7 +231,7 @@ export default {
     margin-bottom: 10px;
     text-align: center;
     @include mobile() {
-    font-size: 16px;
+      font-size: 12px;
     }
   }
   &__buttons-container {
@@ -239,8 +253,9 @@ export default {
     height: 300px;
   }
   &__image4 {
-    height: 100px;
-    margin-left: -20px;
+    height: 80px;
+    margin-left: -10px;
+    margin-top: 10px;
   }
   &__mobile-content {
     width: 100%;
@@ -249,9 +264,9 @@ export default {
   }
   &__mobile-recaptcha {
     position: absolute;
-    top: 20px;
-    right: -90px;
-    transform: scale(0.5);
+    top: 0;
+    right: -98px;
+    transform: scale(0.4);
   }
   &__mobile-content2 {
     display: flex;
