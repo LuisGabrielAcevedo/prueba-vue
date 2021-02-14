@@ -9,7 +9,7 @@
       class="signIn__image"
       src="@/assets/web/grupo.png"
      />
-     <span class="signIn__signInTitle">¿YA ESTÁS REGISTRADO?</span>
+    <span class="signIn__signInTitle">¿YA ESTÁS REGISTRADO?</span>
     <div class="signIn__form">
       <div class="signIn__input">
          <Input
@@ -34,6 +34,11 @@
     </div>
     <span class="signIn__endMessage">Promo válida únicamente para mayores de edad.</span>
     </div>
+    <img
+      v-if="mobile"
+      class="signIn__image2"
+      src="@/assets/mobile/fondo2.jpg"
+    />
   </div>
 </template>
 
@@ -121,6 +126,7 @@ export default {
   align-items: center;
   justify-content: flex-end;
   padding-right: 60px;
+  position: relative;
   @include mobile() {
     padding: 0;
   }
@@ -134,12 +140,14 @@ export default {
     border-bottom-right-radius: 25px;
     padding: 40px 40px 40px 40px;
     @include mobile() {
+      top: 0;
       padding: 10px 4px;
       background-color: transparent;
       width: 100%;
       border-bottom-left-radius: 0px;
       border-bottom-right-radius: 0px;
       box-shadow: none;
+      position: absolute;
     }
   }
   &__image {
@@ -209,6 +217,13 @@ export default {
   }
   &__btn {
     margin-bottom: 36px;
+  }
+  &__image2 {
+    height: calc(100vh - 74px);
+    width: 100%;
+    @media only screen and(max-height: 600px) {
+      height: 600px;
+    }
   }
 }
 </style>

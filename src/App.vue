@@ -11,11 +11,6 @@
       class="app__image1"
       src="@/assets/web/fondo-ingresar.jpg"
     />
-    <img
-    v-if="login && mobile"
-      class="app__image2"
-      src="@/assets/mobile/fondo2.jpg"
-    />
     </div>
     <div class="app__content">
       <div class="app__routes">
@@ -104,7 +99,7 @@ export default {
     align-items: center;
     justify-content: center;
     top: 0;
-    left: 0px;
+    left: 0;
     right: 0;
     bottom: 0;
     z-index: 1;
