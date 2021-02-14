@@ -230,6 +230,8 @@ export default {
           padding-left: 16px;
           border-radius: 0;
           height: 74px;
+          border-top: 2px solid #f31c14;
+          border-bottom: 2px solid #c4140c;
         }
     }
     &__closeContainer {
