@@ -16,7 +16,7 @@
           <span class="preview__text">Cuantos más códigos registres,</span>
           <span class="preview__text">más oportunidades tendrás de ganar.</span>
         </div>
-        <span v-if="!mobile" class="preview__endMessage" style="margin-top: 46px;">FALTAN <span class="preview__number">02</span> DÍAS</span>
+        <span v-if="!mobile" class="preview__endMessage" style="margin-top: 46px;">FALTAN <span class="preview__number">{{days}}</span> DÍAS</span>
         <span v-if="mobile" class="preview__endMessage" style="margin-top: 46px;">FALTAN</span>
         <span v-if="mobile" class="preview__number">{{days}}</span>
         <span v-if="mobile" class="preview__endMessage">DÍAS</span>

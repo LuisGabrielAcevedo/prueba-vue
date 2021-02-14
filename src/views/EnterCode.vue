@@ -29,6 +29,7 @@
             @expired="expiredRecaptcha"
             size="100px"
             language="es"
+            ref="recaptcha"
           ></vue-recaptcha>
           </div>
           <div class="enterCode__button">
@@ -75,6 +76,7 @@
             @expired="expiredRecaptcha"
             size="100px"
             language="es"
+            ref="recaptcha"
           ></vue-recaptcha>
           </div>
       </div>
