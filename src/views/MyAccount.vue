@@ -103,7 +103,9 @@ export default {
     border-bottom-right-radius: 25px;
     padding: 20px 0 40px 0;
     @include mobile() {
-      margin: 0 20px 20px 20px;
+      width: 88%;
+      padding: 20px 10px 40px 10px;
+      margin-bottom: 20px;
     }
   }
   &__description-content {

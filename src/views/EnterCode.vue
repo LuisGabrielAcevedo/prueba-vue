@@ -103,7 +103,7 @@ export default {
       id: "",
       error: "",
       recaptchaCode: null,
-      count: 0
+      count: 0, 
     };
   },
   components: {
@@ -152,7 +152,7 @@ export default {
             showClose: true,
             type:'SUCCESS',
             title: respu.data.mensaje,
-            message: resp.data,
+            message: !respu.data.winner ? resp.data : '',
           });
           })
         })
