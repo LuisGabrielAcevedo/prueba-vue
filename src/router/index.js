@@ -12,20 +12,20 @@ import TermsAndConditions from "../views/TermsAndConditions.vue";
 import AppContent from "../views/AppContent.vue";
 import ContactUs from "../views/ContactUs.vue";
 import store from "@/store";
-import { Activity } from "../api";
+// import { Activity } from "../api";
 
 Vue.use(VueRouter);
 
 const getActivity = async () => {
-  // return null;
-  try {
-    const resp = await Activity();
-    if (resp.data.days > 0) return "/muy-pronto-comienza-la-promo";
-    if (resp.data.days === 0) return "/";
-    return null;
-  } catch (err) {
-    return "/muy-pronto-comienza-la-promo";
-  }
+  return null;
+  // try {
+  //   const resp = await Activity();
+  //   if (resp.data.days > 0) return "/muy-pronto-comienza-la-promo";
+  //   if (resp.data.days === 0) return "/";
+  //   return null;
+  // } catch (err) {
+  //   return "/muy-pronto-comienza-la-promo";
+  // }
 };
 
 const activityGuard = async (to, from, next) => {

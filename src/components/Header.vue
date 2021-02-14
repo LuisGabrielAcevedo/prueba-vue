@@ -227,8 +227,9 @@ export default {
         }
         @include mobile() {
           padding-right: 24px;
+          padding-left: 16px;
           border-radius: 0;
-          height: 70px;
+          height: 74px;
         }
     }
     &__closeContainer {
@@ -255,7 +256,7 @@ export default {
       height: 46px;
       margin-right: 20px;
       @include mobile() {
-        height: 40px;
+        height: 36px;
       }
     }
     &__menu-icon {

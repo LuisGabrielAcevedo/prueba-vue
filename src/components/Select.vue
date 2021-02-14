@@ -26,11 +26,18 @@
                 class="select__option"
                 v-for="(item, i) in items"
                 :key="i"
-                >{{ item.text }}</span
               >
+              {{ item.text }}
+              </span>
             </div>
           </div>
         </div>
+    </div>
+    <div class="select__messages">
+       <div class="select__messages-box">
+          <span class="select__error">{{ error || "" }}</span>
+          <span v-if="hint && !error" class="select__hint">{{ hint }}</span>
+       </div>
     </div>
   </div>
 </template>
@@ -158,7 +165,7 @@ export default {
     font-family: MontrealBold;
     font-size: 15px;
     @include mobile() {
-      font-size: 12px;
+      font-size: 10px;
     }
   }
   &__icon-content {
@@ -192,14 +199,45 @@ export default {
     font-size: 12px;
     color: black;
     padding: 2px;
-    font-family: MontrealHeavy;
+    font-family: MontrealRegular;
   }
   &__option:hover {
     background: #eee;
   }
   &__text {
+    font-family: MontrealRegular;
     @include mobile() {
       font-size: 12px;
+    }
+  }
+  &__error {
+    color: #D62626;
+    font-family: MontrealBold;
+    font-size: 11px;
+    @include mobile() {
+      font-size: 9px;
+    }
+  }
+  &__hint {
+    color: #D62626;
+    font-family: MontrealBold;
+    font-size: 11px;
+    @include mobile() {
+      font-size: 9px;
+    }
+  }
+  &__messages {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    line-height: 11px !important;
+    padding: 3px 0 0 10px;
+  }
+  &__messages-box {
+    padding-left: 100px;
+    width: 100%;
+    @include mobile() {
+      padding-left: 70px;
     }
   }
 }

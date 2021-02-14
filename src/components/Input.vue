@@ -140,7 +140,7 @@ export default {
       font-family: MontrealBold;
       font-size: 15px;
       @include mobile() {
-        font-size: 12px;
+        font-size: 10px;
       }
     }
     @include mobile() {
@@ -167,6 +167,7 @@ export default {
       font-size: 17px;
       padding: 4px 10px;
       text-align: center;
+      font-family: MontrealRegular;
       @include mobile() {
         font-size: 12px;
         height: 30px;
@@ -186,13 +187,16 @@ export default {
       color: #D62626;
       font-family: MontrealBold;
       font-size: 11px;
+      @include mobile() {
+        font-size: 9px;
+      }
     }
     &__hint {
         color: #D62626;
         font-family: MontrealBold;
         font-size: 11px;
         @include mobile() {
-          font-size: 10px;
+          font-size: 9px;
         }
     }
     &__label {

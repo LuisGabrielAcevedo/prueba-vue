@@ -1,7 +1,12 @@
 <template>
   <div class="signUp">
     <div class="signUp__content">
-      <div class="signUp__title"><Title text="REGISTRO"/></div>
+      <div class="signUp__title-content">
+        <img
+        class="signUp__title"
+        src="@/assets/web/titles/Titulo_Registro.png"
+        />
+      </div>
       <div class="signUp__form-row">
         <Input
           :model="user.firstName"
@@ -153,7 +158,6 @@
 </template>
 
 <script>
-import Title from '../components/Title'
 import Radio  from '../components/Radio'
 import Button  from '../components/Button'
 import Input from '../components/Input'
@@ -222,7 +226,6 @@ export default {
     };
   },
   components: {
-    Title,
     Radio,
     Button,
     Input,
@@ -263,19 +266,26 @@ export default {
         });
       } else {
         if (!Object.keys(this.errors).length) {
-          if (!this.terms || !this.terms2) {
+          if (!this.terms) {
             this.$store.dispatch("setAlert", {
               buttonLabel: "Aceptar",
               type:'INFO',
               showClose: true,
-              message: "¡Debes aceptar los términos y condiciones!."
+              message: "¡Debes aceptar los términos y condiciones de la promoción.!."
+            });
+          } else if (!this.terms2) {
+            this.$store.dispatch("setAlert", {
+              buttonLabel: "Aceptar",
+              type:'INFO',
+              showClose: true,
+              message: "¡Debes aceptar los términos y condiciones de manejo de datos."
             });
           } else if (!this.terms3) {
             this.$store.dispatch("setAlert", {
               buttonLabel: "Aceptar",
               type:'INFO',
               showClose: true,
-              message: "¡Debes aceptar la declaración!."
+              message: "¡Debes declarar que no eres trabajador o colaborador de PepsiCo, y/o sus compañías asociadas ni de los distribuidores de PepsiCo!."
             });
           } else if (!this.terms4) {
             this.$store.dispatch("setAlert", {
@@ -338,15 +348,15 @@ export default {
       }
       if (
         this.user.firstName &&
-        !(this.user.firstName.length > 6 && this.user.firstName.length < 20)
+        !(this.user.firstName.length >= 4 && this.user.firstName.length < 20)
       ) {
-        errors.firstName = "El nombre debe tener entre 6 y 20 carácteres.";
+        errors.firstName = "El nombre debe tener entre 4 y 20 carácteres.";
       }
       if (
         this.user.lastName &&
-        !(this.user.lastName.length > 6 && this.user.lastName.length < 20)
+        !(this.user.lastName.length >= 4 && this.user.lastName.length < 20)
       ) {
-        errors.lastName = "El apellido debe tener entre 6 y 20 carácteres.";
+        errors.lastName = "El apellido debe tener entre 4 y 20 carácteres.";
       }
       if (this.user.phone && !phoneReq.test(this.user.phone)) {
         errors.phone = "Ingresa un número de celular válido.";
@@ -397,8 +407,17 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
+  &__title-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;
+  }
   &__title {
-    margin-bottom: 40px;
+    height: 90px;
+    @include mobile() {
+      height: 50px;
+    }
   }
   &__content {
     display: flex;
@@ -408,9 +427,13 @@ export default {
     border-bottom-left-radius: 25px;
     border-bottom-right-radius: 25px;
     padding: 20px 60px 40px 60px;
+    @include tablet() {
+      padding: 20px 20px 40px 20px;
+    }
     @include mobile() {
-     padding: 20px 20px 40px 20px;
-     width: 100%;
+     padding: 20px 10px 40px 10px;
+     margin-bottom: 20px;
+     width: 88%;
     }
   }
   &__radio-container {

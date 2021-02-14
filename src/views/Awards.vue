@@ -75,7 +75,8 @@ export default {
     border-bottom-right-radius: 25px;
     padding: 20px 0 40px 0;
     @include mobile() {
-      margin: 0 20px;
+      padding: 20px 10px 40px 10px;
+      width: 88%;
     }
   }
   &__images-content {
@@ -99,13 +100,13 @@ export default {
   &__iphone {
     height: 300px;
     @include mobile {
-      height: 240px;
+      height: 200px;
     }
   }
   &__gift {
     height: 300px;
     @include mobile {
-      height: 230px;
+      height: 200px;
     }
   }
   &__message-container {

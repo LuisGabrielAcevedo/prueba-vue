@@ -2,10 +2,14 @@
   <div class="contactUs">
     <div class="contactUs__content">
       <div class="contactUs__title-container">
-         <Title text="CONTÁCTENOS"/>
+         <img
+         class="contactUs__title"
+         src="@/assets/web/titles/Titulo_Contacto.png"
+         />
       </div>
-      <span class="contactUs__text">Por favor, contáctanos a través de este formulario</span>
-      <span class="contactUs__text">y responderemos tu mensaje.</span>
+      <span v-if="!mobile" class="contactUs__text">Por favor, contáctanos a través de este formulario</span>
+      <span v-if="!mobile" class="contactUs__text">y responderemos tu mensaje.</span>
+      <span v-if="mobile" class="contactUs__text">Por favor, contáctanos a través de este formulario y responderemos tu mensaje.</span>
       <div class="contactUs__form">
         <Select
         field="topic"
@@ -33,7 +37,6 @@
 </template>
 
 <script>
-import Title from '../components/Title'
 import Button from '../components/Button'
 import Select from '../components/Select'
 import Textarea from '../components/Textarea'
@@ -42,7 +45,6 @@ import {SaveMessage} from '../api'
 export default {
   name: 'ContactUs',
   components: {
-    Title,
     Button,
     Select,
     Textarea
@@ -54,6 +56,9 @@ export default {
         text: s.text,
       }));
     },
+    mobile() {
+      return this.$store.getters.mobile;
+    }
   },
   methods: {
     setValue(e) {
@@ -142,6 +147,12 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
+  &__title {
+    height: 90px;
+    @include mobile() {
+      height: 50px;
+    }
+  }
   &__content {
     display: flex;
     flex-direction: column;
@@ -151,12 +162,15 @@ export default {
     border-bottom-right-radius: 25px;
     padding: 20px 100px 40px 100px;
     @include mobile() {
-      width: 100%;
+      width: 88%;
       padding: 20px 10px 40px 10px;
+      margin-bottom: 20px;
     }
   }
   &__title-container {
-    margin-bottom: 40px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
   }
   &__button-container{
     margin-top: 40px;

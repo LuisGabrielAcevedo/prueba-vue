@@ -54,7 +54,7 @@
         src="@/assets/web/tazos2.png"
       />
       <div class="enterCode__mobile-content2">
-        <div style="width: 130px; margin-right: 20px;">
+        <div style="width: 140px; margin-right: 20px;">
           <Input
           field="id"
           :model="id"
@@ -102,7 +102,8 @@ export default {
       loading: false,
       id: "",
       error: "",
-      recaptchaCode: true,
+      recaptchaCode: null,
+      count: 0
     };
   },
   components: {
@@ -117,6 +118,7 @@ export default {
   },
   methods: {
     send() {
+      this.verifyCatptcha()
        if (this.id) {
         if (this.recaptchaCode) {
           this.save();
@@ -174,6 +176,15 @@ export default {
     setValue(e) {
       this.id = e.value;
     },
+    verifyCatptcha() {
+      if (this.count === 3) {
+        this.$refs.recaptcha.reset()
+        this.recaptchaCode = null;
+        this.count = 0
+      } else {
+        this.count = this.count + 1;
+      }
+    }
   }
 }
 </script>
