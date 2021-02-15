@@ -138,7 +138,10 @@ export default {
     box-shadow: 7px 7px 7px #00000059;
     border-bottom-left-radius: 25px;
     border-bottom-right-radius: 25px;
-    padding: 40px 40px 40px 40px;
+    padding: 40px;
+    @include tablet() {
+      padding: 20px;
+    }
     @include mobile() {
       top: 0;
       padding: 10px 4px;
@@ -151,19 +154,19 @@ export default {
     }
   }
   &__image {
-    height: 160px;
+    height: 140px;
     @include mobile() {
       height: 80px;
     }
   }
   &__title {
     font-family: MontrealHeavy;
-    font-size: 18px;
-    line-height: 22px;
+    font-size: 16px;
+    line-height: 20px;
     @include mobile() {
       font-family: MontrealHeavy;
-      font-size: 14px;
-      line-height: 14px;
+      font-size: 12px;
+      line-height: 12px;
       text-align: center;
     }
   }
@@ -171,8 +174,8 @@ export default {
     color: #D52626;
   }
   &__start-image-2 {
-    height: 26px;
-    margin-top: -14px;
+    height: 24px;
+    margin-top: -16px;
     @include mobile() {
       height: 20px;
       margin-top: -20px;
@@ -180,10 +183,10 @@ export default {
   }
   &__signInTitle {
     font-family: MontrealHeavy;
-    font-size: 30px;
-    margin: 20px 0;
+    font-size: 26px;
+    margin: 18px 0;
     @include mobile() {
-      font-size: 18px;
+      font-size: 16px;
       margin: 10px 0 20px 0;
     }
   }

@@ -54,6 +54,7 @@ export default {
   align-items: center;
   width: 600px;
   margin: 0 auto;
+  padding-bottom: 20px;
   @include mobile {
       width: 100%;
       margin: 0;
@@ -98,13 +99,13 @@ export default {
     }
   }
   &__iphone {
-    height: 300px;
+    height: 260px;
     @include mobile {
       height: 200px;
     }
   }
   &__gift {
-    height: 300px;
+    height: 260px;
     @include mobile {
       height: 200px;
     }

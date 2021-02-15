@@ -113,12 +113,12 @@ export default {
       height: 100vh;
       width: 1500px;
     }
-    @media only screen and(max-height: 700px) {
-      height: 700px !important;
+    @media only screen and(max-height: 600px) {
+      height: 100% !important;
     }
     @include tablet() {
       transform: scale(0.9);
-      margin-top: 10px;
+      margin-top: 80px;
     }
   }
   &__image {

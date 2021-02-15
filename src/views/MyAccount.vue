@@ -16,14 +16,16 @@
           <span class="table__header-item">FECHA</span>
           <span class="table__header-item">PREMIO</span>
         </div>
-        <div class="table__data">
-          <div class="table__data-row" v-for="(item, i) in data" :key="i">
+        <div class="table__data myAccount__table">
+          <div class="myAccount__scroll">
+            <div class="table__data-row" v-for="(item, i) in data" :key="i">
             <span v-if="!mobile" class="table__data-row-item">{{i + 1}}</span>
             <span class="table__data-row-item">{{item.code}}</span>
             <span class="table__data-row-item">{{formatDate(item.created_at)}}</span>
             <span class="table__data-row-item" :class="{
                   'table--data-row-item-selected': item.result
                 }">{{item.result ? 'RECARGA' : '-'}}</span>
+          </div>
           </div>
         </div>
       </div>
@@ -164,5 +166,31 @@ export default {
       line-height: 18px;
     }
   }
+  &__table {
+    height: 210px;
+  }
+  &__scroll {
+    overflow-y: auto;
+    width: 100%;
+    max-height: 100%;
+    height: 100%;
+  }
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 8px !important;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background-color: rgba(214, 38, 38, 0.7) !important;
+  border-radius: 10px !important;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: white !important;
+  border-radius: 10px !important;
 }
 </style>

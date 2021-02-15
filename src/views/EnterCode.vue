@@ -196,6 +196,10 @@ export default {
   display: flex;
   align-items: flex-start;
   justify-content: center;
+  @media only screen and(min-width: 600px) {
+    overflow: hidden;
+    height: 100%;
+  }
   &__title {
     height: 100px;
     @include mobile() {
@@ -208,9 +212,13 @@ export default {
     height: 836px;
     margin-left: -170px;
     margin-right: 100px;
+    @include tablet() {
+      margin-right: 20px;
+    }
     @include mobile() {
       height: 500px;
       margin-left: 0;
+      margin-right: 120px;
     }
   }
   &__image2 {
@@ -233,6 +241,8 @@ export default {
     @include mobile() {
       margin: 0 20px 20px 20px;
       overflow: hidden;
+      max-width: 318px;
+      max-height: 600px;
     }
   }
   &__content2 {
@@ -271,6 +281,9 @@ export default {
     height: 80px;
     margin-left: -10px;
     margin-top: 10px;
+    @include xs() {
+      height: 60px;
+    }
   }
   &__mobile-content {
     width: 100%;

@@ -248,7 +248,7 @@ export default {
       height: 84px;
       width: 100%;
       @include mobile() {
-        height: 70px;
+        height: 64px;
       }
     }
     &__closeContainer-area {

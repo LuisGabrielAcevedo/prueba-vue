@@ -43,7 +43,7 @@ export default {
   }
   &__image2 {
     margin-top: 20px;
-    height: 500px;
+    height: 450px;
     @include mobile() {
        height: 453px;
     }
