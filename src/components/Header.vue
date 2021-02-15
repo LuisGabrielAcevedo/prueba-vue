@@ -305,6 +305,9 @@ export default {
       @include mobile() {
         margin-bottom: 20px;
       }
+      @include xs() {
+        margin-bottom: 10px;
+      }
     }
     &--web-route-selected {
       background-color: white;

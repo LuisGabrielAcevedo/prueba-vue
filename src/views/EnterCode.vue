@@ -23,7 +23,7 @@
         <div class="enterCode__buttons-container">
           <div class="enterCode__recaptcha">
           <vue-recaptcha
-            sitekey="6LeepLgZAAAAAOEFbUH1LNlh-gpy4OfKV4zTIuoK"
+            sitekey="6LdInk8aAAAAAG_owRUDTnH3ZfL_Pa-RHmcajit_"
             :loadRecaptchaScript="true"
             @verify="verifyRecaptcha"
             @expired="expiredRecaptcha"
@@ -70,7 +70,7 @@
       </div>
       <div class="enterCode__mobile-recaptcha">
           <vue-recaptcha
-            sitekey="6LeepLgZAAAAAOEFbUH1LNlh-gpy4OfKV4zTIuoK"
+            sitekey="6LdInk8aAAAAAG_owRUDTnH3ZfL_Pa-RHmcajit_"
             :loadRecaptchaScript="true"
             @verify="verifyRecaptcha"
             @expired="expiredRecaptcha"
