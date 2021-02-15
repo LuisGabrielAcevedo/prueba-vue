@@ -248,6 +248,9 @@ export default {
       padding: 0 24px;
       height: 78px;
       width: 100%;
+      @include tablet() {
+        height: 70px;
+      }
       @include mobile() {
         height: 64px;
       }

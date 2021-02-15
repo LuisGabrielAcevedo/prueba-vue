@@ -184,7 +184,7 @@ export default {
   &__signInTitle {
     font-family: MontrealHeavy;
     font-size: 24px;
-    margin: 18px 0;
+    margin: 16px 0;
     @include mobile() {
       font-size: 16px;
       margin: 10px 0 20px 0;

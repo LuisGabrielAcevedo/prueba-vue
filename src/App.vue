@@ -110,7 +110,7 @@ export default {
       transform: scale(0.8);
     }
     @media only screen and(max-width: 1160px) {
-      transform: scale(0.62);
+      transform: scale(0.56);
     }
   }
   &__image {
