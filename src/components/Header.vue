@@ -205,11 +205,11 @@ export default {
     justify-content: center;
     padding: 120px;
     width: 100%;
-    padding-top: 10px;
+    padding-top: 20px;
     padding-bottom: 0;
     @include tablet() {
       padding: 20px;
-      padding-top: 30px;
+      padding-top: 20px;
       padding-bottom: 0;
     }
     @include mobile() {
