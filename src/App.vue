@@ -116,16 +116,15 @@ export default {
     @media only screen and(max-height: 700px) {
       height: 700px !important;
     }
-    
+    @include tablet() {
+      transform: scale(0.9);
+      margin-top: 10px;
+    }
   }
   &__image {
     @include mobile() {
       height: 100%;
     }
-  }
-  &__image2 {
-    height: 100vh;
-    width: 100%;
   }
   &__content {
     position: absolute;

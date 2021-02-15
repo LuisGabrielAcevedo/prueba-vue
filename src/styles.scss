@@ -18,6 +18,15 @@
   src: url("assets/fonts/SofiaProSemiBold_0.otf") format("truetype");
 }
 
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden !important;
+}
+
 @import "@/assets/scss/mixins.scss";
 
 .table {
@@ -64,4 +73,8 @@
       font-size: 11px;
     }
   }
+}
+
+.capital {
+  text-transform: capitalize;
 }

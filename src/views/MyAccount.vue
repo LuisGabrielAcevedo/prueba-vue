@@ -6,7 +6,7 @@
         src="@/assets/web/titles/Titulo_Mi_Cuenta.png"
       />
       <div class="myAccount__description-content">
-        <span class="myAccount__description">¡Bienvenido, <span class="myAccount__redDescription">{{name}}</span>!</span><br>
+        <span class="myAccount__description">¡Bienvenido, <span class="myAccount__redDescription capital">{{name}}</span>!</span><br>
         <span class="myAccount__description">este es el estado de tu cuenta al momento:</span>
       </div>
       <div class="table">

@@ -20,7 +20,7 @@
               item.current
             }">
             <span class="table__data-row-item">{{ item.position }}</span>
-            <span class="table__data-row-item">{{item.name}}</span>
+            <span class="table__data-row-item capital">{{item.name}}</span>
             <span class="table__data-row-item">{{item.total_codes}}</span>
           </div>
         </div>

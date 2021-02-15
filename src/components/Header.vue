@@ -1,17 +1,22 @@
 <template>
   <div class="header">
-    <div class="header__content">
+    <div v-if="token && !mobile" class="header__closeContainer-area">
+      <div class="header__closeContainer" @click="logout()">
+        <span class="header__closeText">CERRAR SESIÓN</span>
+      </div>
+    </div>
+    <div class="header__column">
+      <div class="header__section-1">
+      </div>
+      <div class="header__content">
       <img
-      class="header__image"
-      src="@/assets/web/logo-blanco.png"
-     />
-     <div v-if="token && !mobile" class="header__closeContainer" @click="logout()">
-       <span class="header__closeText">CERRAR SESIÓN</span>
-     </div>
-     <i class="fas fa-bars header__menu-icon"  v-if="this.mobile" @click="toggle()"></i>
-          <div class="header__web-routes" v-if="!this.mobile">
-            <div v-for="(route, k) in webRoutes" :key="k">
-            <div 
+        class="header__image"
+        src="@/assets/web/logo-blanco.png"
+      />
+      <i class="fas fa-bars header__menu-icon"  v-if="this.mobile" @click="toggle()"></i>
+        <div class="header__web-routes" v-if="!this.mobile">
+          <div v-for="(route, k) in webRoutes" :key="k">
+          <div 
               v-if="route.isVisible()" 
               class="header__web-route"
               :class="{
@@ -31,6 +36,9 @@
             </div>
           </div>
           </div>
+      </div>
+      <div class="header__section-2">
+      </div>
     </div>
     <v-navigation-drawer
       class="header__drawer"
@@ -206,38 +214,55 @@ export default {
     @include mobile() {
       padding: 0;
     }
-    &__content { 
-        position: relative;
-        margin: 0 auto;
-        height: 94px;
-        min-width: 1150px;
-        background: #D62626 0% 0% no-repeat padding-box;
-        border-top: 4px solid #f31c14;
-        border-bottom: 4px solid #c4140c;
-        border-radius: 24px;
-        opacity: 1;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 0 24px;
-        // padding-right: 70px;
-        @include tablet() {
-          padding-right: 24px;
-          min-width: 100%;
-        }
-        @include mobile() {
-          padding-right: 24px;
-          padding-left: 16px;
-          border-radius: 0;
-          height: 74px;
-          border-top: 2px solid #f31c14;
-          border-bottom: 2px solid #c4140c;
-        }
+    &__column {
+      display: flex;
+      flex-direction: column;
+      margin: 0 auto;
+      border-radius: 24px;
+      overflow: hidden;
+      min-width: 1150px;
+      @include tablet() {
+        min-width: 100%;
+      }
+      @include mobile() {
+        border-radius: 0;
+        padding: 0;
+      }
+    }
+    &__section-1 {
+      background-color: #f31c14;
+      height: 4px;
+      width: 100%;
+    }
+    &__section-2 {
+      background-color: #c4140c;
+      height: 4px;
+      width: 100%;
+    }
+    &__content {
+      background: #D62626;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 24px;
+      height: 84px;
+      width: 100%;
+      @include mobile() {
+        height: 70px;
+      }
+    }
+    &__closeContainer-area {
+      position: absolute;
+      display: flex;
+      justify-content: flex-end;
+      top: 126px;
+      min-width: 1150px;
+      padding-right: 24px;
+      @include tablet {
+        min-width: 100%;
+      }
     }
     &__closeContainer {
-      position: absolute;
-      top: 92px;
-      right: 24px;
       background-color: #D62626;
       border-radius: 25px;
       padding: 6px 10px;
@@ -288,6 +313,9 @@ export default {
       font-family: MontrealBold;
       font-size: 16px;
       color: white;
+      @include tablet() {
+        font-size: 14px !important;
+      }
     }
     &--web-route-text-selected {
       color: #D62626;

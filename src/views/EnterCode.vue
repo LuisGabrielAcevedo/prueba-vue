@@ -82,8 +82,8 @@
       </div>
       <img
       v-if="mobile"
-      class="enterCode__image3"
-      src="@/assets/web/copa2.png"
+      class="enterCode__image"
+      src="@/assets/web/copa.png"
      />
      </div>
   </div>
@@ -208,6 +208,10 @@ export default {
     height: 836px;
     margin-left: -170px;
     margin-right: 100px;
+    @include mobile() {
+      height: 500px;
+      margin-left: 0;
+    }
   }
   &__image2 {
     margin-top: 100px;
@@ -228,6 +232,7 @@ export default {
     margin-bottom: 20px;
     @include mobile() {
       margin: 0 20px 20px 20px;
+      overflow: hidden;
     }
   }
   &__content2 {
@@ -261,9 +266,6 @@ export default {
   }
   &__button {
     margin-top: 50px;
-  }
-  &__image3 {
-    height: 300px;
   }
   &__image4 {
     height: 80px;

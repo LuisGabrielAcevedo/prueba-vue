@@ -36,7 +36,6 @@
     <div class="select__messages">
        <div class="select__messages-box">
           <span class="select__error">{{ error || "" }}</span>
-          <span v-if="hint && !error" class="select__hint">{{ hint }}</span>
        </div>
     </div>
   </div>
@@ -198,7 +197,7 @@ export default {
   &__option {
     font-size: 12px;
     color: black;
-    padding: 2px;
+    padding: 6px 2px;
     font-family: MontrealRegular;
   }
   &__option:hover {
@@ -211,14 +210,6 @@ export default {
     }
   }
   &__error {
-    color: #D62626;
-    font-family: MontrealBold;
-    font-size: 11px;
-    @include mobile() {
-      font-size: 9px;
-    }
-  }
-  &__hint {
     color: #D62626;
     font-family: MontrealBold;
     font-size: 11px;
