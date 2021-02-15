@@ -157,14 +157,16 @@ export default {
           })
         })
         .catch((err) => {
-          this.id = "";
-          this.loading = false;
-          this.$store.dispatch("setAlert", {
+          if (err.response.status !== 401) {
+            this.id = "";
+            this.loading = false;
+            this.$store.dispatch("setAlert", {
             buttonLabel: "Aceptar",
             type:'INFO',
             showClose: true,
             message: err.response.data.message.mensaje || "",
           });
+          }
         });
     },
     verifyRecaptcha(token) {

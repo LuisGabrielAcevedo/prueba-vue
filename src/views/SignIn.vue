@@ -34,17 +34,11 @@
     </div>
     <span class="signIn__endMessage">Promo válida únicamente para mayores de edad.</span>
     </div>
-    <div class="signIn__image1-content">
-      <div class="signIn__image1-box-r"></div>
-      <div class="signIn__image1-box-l"></div>
-      <div class="signIn__image1-box-t"></div>
-      <div class="signIn__image1-box-b"></div>
-      <img
+    <img
         v-if="mobile"
         class="signIn__image2"
         src="@/assets/mobile/fondo2.jpg"
       />
-    </div>
   </div>
 </template>
 
@@ -230,6 +224,7 @@ export default {
   }
   &__image2 {
     height: calc(100vh - 74px);
+    margin: 0 auto;
     @media only screen and(max-height: 600px) {
       height: 600px;
     }
