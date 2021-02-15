@@ -205,7 +205,7 @@ export default {
     justify-content: center;
     padding: 120px;
     width: 100%;
-    padding-top: 20px;
+    padding-top: 10px;
     padding-bottom: 0;
     @include tablet() {
       padding: 20px;
@@ -246,7 +246,7 @@ export default {
       align-items: center;
       justify-content: space-between;
       padding: 0 24px;
-      height: 84px;
+      height: 78px;
       width: 100%;
       @include mobile() {
         height: 64px;
