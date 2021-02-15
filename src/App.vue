@@ -106,19 +106,11 @@ export default {
     background-color: rgba(251,199, 2);
   }
   &__image1 {
-    margin-top: 100px;
-    transform: scale(0.99);
-    @media only screen and(max-width: 1500px) {
-      margin-top: 0;
-      height: 100vh;
-      width: 1500px;
+    @media only screen and(max-width: 1550px) {
+      transform: scale(0.8);
     }
-    @media only screen and(max-height: 600px) {
-      height: 100% !important;
-    }
-    @include tablet() {
-      transform: scale(0.9);
-      margin-top: 80px;
+    @media only screen and(max-width: 1160px) {
+      transform: scale(0.7);
     }
   }
   &__image {

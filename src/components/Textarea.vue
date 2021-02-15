@@ -79,7 +79,7 @@ export default {
     },
     maxlength: {
       type: String,
-      default: "100"
+      default: "160"
     }
   },
   methods: {
@@ -148,7 +148,7 @@ export default {
       border-style: none;
       background-color: white;
       width: 100%;
-      height: 80px;
+      height: 100px;
       border-radius: 18px;
       font-size: 17px;
       padding: 4px 10px;
@@ -156,7 +156,6 @@ export default {
       font-family: MontrealRegular;
       @include mobile() {
         font-size: 12px;
-        height: 70px;
       }
     }
     textarea:focus {

@@ -175,22 +175,21 @@ export default {
     max-height: 100%;
     height: 100%;
   }
-}
+  /* width */
+  ::-webkit-scrollbar {
+    width: 8px !important;
+  }
 
-/* width */
-::-webkit-scrollbar {
-  width: 8px !important;
-}
-
-/* Track */
-::-webkit-scrollbar-track {
-  background-color: rgba(214, 38, 38, 0.7) !important;
-  border-radius: 10px !important;
-}
- 
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: white !important;
-  border-radius: 10px !important;
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background-color: rgba(214, 38, 38, 0.7) !important;
+    border-radius: 10px !important;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: white !important;
+    border-radius: 10px !important;
+  }
 }
 </style>

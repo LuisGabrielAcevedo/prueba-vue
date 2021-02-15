@@ -197,8 +197,11 @@ export default {
   &__option {
     font-size: 12px;
     color: black;
-    padding: 6px 2px;
+    padding: 4px 2px;
     font-family: MontrealRegular;
+    @include mobile() {
+      padding: 6px 2px;
+    }
   }
   &__option:hover {
     background: #eee;

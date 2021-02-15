@@ -173,7 +173,7 @@ export default {
     justify-content: center;
   }
   &__button-container{
-    margin-top: 40px;
+    margin-top: 70px;
     display: flex;
     justify-content: center;
   }

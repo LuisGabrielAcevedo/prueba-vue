@@ -115,13 +115,13 @@
             <div>
               <Radio @handle-click="toggleTerms()" :value="terms"/>
             </div>
-            <span class="signUp__radio-text">Acepto los <span class="signUp__radio-text-action" @click="goTo('/terminos-y-condiciones')">términos y condiciones</span> de la promoción.</span>
+            <span class="signUp__radio-text">Acepto los <span class="signUp__radio-text-action" @click="goToTerms()">términos y condiciones</span> de la promoción.</span>
           </div>
           <div class="signUp__radio-container">
             <div>
               <Radio @handle-click="toggleTerms2()" :value="terms2"/>
             </div>
-            <span class="signUp__radio-text">Acepto los <span class="signUp__radio-text-action" @click="goTo('/terminos-y-condiciones')">términos y condiciones</span> de manejo de datos.</span>
+            <span class="signUp__radio-text">Acepto los <span class="signUp__radio-text-action" @click="goToTerms()">términos y condiciones</span> de manejo de datos.</span>
           </div>
           <div class="signUp__radio-container">
             <div style="width:40px;">
@@ -314,6 +314,12 @@ export default {
     goTo(path) {
       if (this.$route.path !== `/${path}`) this.$router.push(path);
     },
+    goToTerms() {
+      window.open(
+        `${location.origin}/terminos-y-condiciones`,
+        "_blank"
+      );
+    },
     setValue(e) {
       this.user[e.key] = e.value;
       this.validate();
@@ -427,6 +433,7 @@ export default {
     border-bottom-left-radius: 25px;
     border-bottom-right-radius: 25px;
     padding: 20px 60px 40px 60px;
+    margin-bottom: 20px;
     @include tablet() {
       padding: 20px 20px 40px 20px;
     }
@@ -483,4 +490,5 @@ export default {
     }
   }
 }
+
 </style>

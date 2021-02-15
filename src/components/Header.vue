@@ -10,6 +10,7 @@
       </div>
       <div class="header__content">
       <img
+        @click="logoClick()"
         class="header__image"
         src="@/assets/web/logo-blanco.png"
       />
@@ -178,7 +179,7 @@ export default {
       this.goTo("/ingresar");
     },
     logoClick() {
-     
+      this.token ? this.goTo("/ingresar-codigo"): this.goTo("/ingresar");
     },
     toggle() {
       this.drawer = !this.drawer;
@@ -204,7 +205,7 @@ export default {
     justify-content: center;
     padding: 120px;
     width: 100%;
-    padding-top: 30px;
+    padding-top: 20px;
     padding-bottom: 0;
     @include tablet() {
       padding: 20px;
@@ -280,10 +281,11 @@ export default {
       font-size: 10px;
     }
     &__image{
+      cursor: pointer;
       height: 46px;
       margin-right: 20px;
       @include mobile() {
-        height: 36px;
+        height: 42px;
       }
     }
     &__menu-icon {
