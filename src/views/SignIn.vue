@@ -175,7 +175,7 @@ export default {
   }
   &__start-image-2 {
     height: 24px;
-    margin-top: -16px;
+    margin-top: -20px;
     @include mobile() {
       height: 20px;
       margin-top: -20px;
@@ -183,8 +183,8 @@ export default {
   }
   &__signInTitle {
     font-family: MontrealHeavy;
-    font-size: 24px;
-    margin: 16px 0;
+    font-size: 22px;
+    margin: 12px 0;
     @include mobile() {
       font-size: 16px;
       margin: 10px 0 20px 0;
@@ -202,7 +202,7 @@ export default {
   }
   &__signUnTitle {
     font-family: MontrealHeavy;
-    font-size: 18px;
+    font-size: 16px;
     margin: 6px 0;
     @include mobile() {
       font-size: 16px;

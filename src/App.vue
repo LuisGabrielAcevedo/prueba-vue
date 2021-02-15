@@ -6,11 +6,17 @@
       class="app__image"
       src="@/assets/web/fondo.jpg"
     />
-    <img
+    <div class="app__image1-content">
+      <div class="app__image1-box-r"></div>
+      <div class="app__image1-box-l"></div>
+      <div class="app__image1-box-t"></div>
+      <div class="app__image1-box-b"></div>
+      <img
       v-if="login && !mobile"
       class="app__image1"
       src="@/assets/web/fondo-ingresar.jpg"
-    />
+     />
+    </div>
     </div>
     <div class="app__content">
       <div class="app__routes">
@@ -105,13 +111,49 @@ export default {
     z-index: 1;
     background-color: rgba(251,199, 2);
   }
-  &__image1 {
+  &__image1-content {
+    position: relative;
     @media only screen and(max-width: 1550px) {
       transform: scale(0.7);
     }
     @media only screen and(max-width: 1160px) {
       transform: scale(0.56);
     }
+  }
+  &__image1-box-r {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background: linear-gradient(-90deg, rgba(251,199, 2), transparent 10%);
+  }
+  &__image1-box-l {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background: linear-gradient(-270deg, rgba(251,199, 2), transparent 10%);
+  }
+  &__image1-box-t {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background: linear-gradient(180deg, rgba(251,199, 2), transparent 10%);
+  }
+  &__image1-box-b {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background: linear-gradient(0, rgba(251,199, 2), transparent 10%);
+  }
+  &__image1 {
+
   }
   &__image {
     @include mobile() {
