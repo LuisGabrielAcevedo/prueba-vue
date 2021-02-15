@@ -208,6 +208,9 @@ export default {
     @include mobile() {
       font-size: 12px;
     }
+    @include xs() {
+      font-size: 10px;
+    }
   }
   &__error {
     color: #D62626;
