@@ -34,11 +34,17 @@
     </div>
     <span class="signIn__endMessage">Promo válida únicamente para mayores de edad.</span>
     </div>
-    <img
-      v-if="mobile"
-      class="signIn__image2"
-      src="@/assets/mobile/fondo2.jpg"
-    />
+    <div class="signIn__image1-content">
+      <div class="signIn__image1-box-r"></div>
+      <div class="signIn__image1-box-l"></div>
+      <div class="signIn__image1-box-t"></div>
+      <div class="signIn__image1-box-b"></div>
+      <img
+        v-if="mobile"
+        class="signIn__image2"
+        src="@/assets/mobile/fondo2.jpg"
+      />
+    </div>
   </div>
 </template>
 
@@ -151,6 +157,7 @@ export default {
       border-bottom-right-radius: 0px;
       box-shadow: none;
       position: absolute;
+      z-index: 2;
     }
   }
   &__image {
@@ -223,10 +230,47 @@ export default {
   }
   &__image2 {
     height: calc(100vh - 74px);
-    width: 100%;
     @media only screen and(max-height: 600px) {
       height: 600px;
     }
+  }
+  &__image1-content {
+    position: relative;
+    @include mobile() {
+      margin: 0 auto;
+    }
+  }
+  &__image1-box-r {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background: linear-gradient(-90deg, rgba(251,199, 2), transparent 10%);
+  }
+  &__image1-box-l {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background: linear-gradient(-270deg, rgba(251,199, 2), transparent 10%);
+  }
+  &__image1-box-t {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background: linear-gradient(180deg, rgba(251,199, 2), transparent 10%);
+  }
+  &__image1-box-b {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background: linear-gradient(0, rgba(251,199, 2), transparent 10%);
   }
 }
 </style>

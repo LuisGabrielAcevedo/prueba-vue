@@ -106,7 +106,16 @@
           :required="false"
           :error="errors.email"
         />
-        <div style="width: 420px;"></div>
+        <div style="width: 420px;">
+          <div class="signUp__radio-container">
+            <div style="width:40px;">
+              <div>
+                <Radio @handle-click="toggleTerms4()" :value="terms4"/>
+              </div>
+            </div>
+            <span class="signUp__radio-text" style="margin-left: -12px;">Soy mayor de edad.</span>
+          </div>
+        </div>
       </div>
       <span class="signUp__description">Es importante que verifiques tus datos especialmente número de celular y operador pues en caso de ser ganador, sólo se te contactará por esté medio.</span>
       <div class="signUp__footer">
@@ -130,14 +139,6 @@
               </div>
             </div>
             <span class="signUp__radio-text">Declaro que no soy trabajador o colaborador de PepsiCo, y/o sus compañías asociadas ni de los distribuidores de PepsiCo.</span>
-          </div>
-          <div class="signUp__radio-container">
-            <div style="width:40px;">
-              <div>
-                <Radio @handle-click="toggleTerms4()" :value="terms4"/>
-              </div>
-            </div>
-            <span class="signUp__radio-text" style="margin-left: -12px;">Soy mayor de edad.</span>
           </div>
         </div>
         <div class="signUp__button-container">

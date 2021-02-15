@@ -152,9 +152,6 @@ export default {
     left: 0;
     background: linear-gradient(0, rgba(251,199, 2), transparent 10%);
   }
-  &__image1 {
-
-  }
   &__image {
     @include mobile() {
       height: 100%;
