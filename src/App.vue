@@ -1,22 +1,27 @@
 <template>
   <div id="app">
     <div class="app__image-content">
-    <img
-      v-if="!login"
-      class="app__image"
-      src="@/assets/web/fondo.jpg"
-    />
-    <div class="app__image1-content">
-      <div class="app__image1-box-r"></div>
-      <div class="app__image1-box-l"></div>
-      <div class="app__image1-box-t"></div>
-      <div class="app__image1-box-b"></div>
+      <div class="app__image1-content" v-if="!mobile">
+        <div class="app__image1-box-r"></div>
+        <div class="app__image1-box-l"></div>
+        <div class="app__image1-box-t"></div>
+        <div class="app__image1-box-b"></div>
+        <img
+        v-if="!login"
+        class="app__image"
+        src="@/assets/web/fondo.jpg"
+        />
+        <img
+        v-if="login"
+        class="app__image1"
+        src="@/assets/web/fondo-ingresar.jpg"
+      />
+      </div>
       <img
-      v-if="login && !mobile"
-      class="app__image1"
-      src="@/assets/web/fondo-ingresar.jpg"
-     />
-    </div>
+        v-if="!login && mobile"
+        class="app__image-mobile"
+        src="@/assets/mobile/fondo.jpg"
+      />
     </div>
     <div class="app__content">
       <div class="app__routes">
@@ -183,6 +188,23 @@ export default {
     width: 100%;
     max-height: 100%;
     height: 100%;
+  }
+  &__image-mobile {
+    height: calc(100vh - 74px);
+    margin: 0 auto;
+    transform: scale(2.7);
+    @media only screen and(max-width: 700px) {
+      transform: scale(2);
+    }
+    @media only screen and(max-width: 500px) {
+      transform: scale(1.4);
+    }
+    @media only screen and(max-width: 400px) {
+      transform: scale(1.2);
+    }
+    @media only screen and(max-width: 360px) {
+      transform: scale(1);
+    }
   }
 }
 </style>
