@@ -398,7 +398,7 @@ export default {
     box-shadow: 7px 7px 7px #00000059;
     border-bottom-left-radius: 25px;
     border-bottom-right-radius: 25px;
-    padding: 20px 60px 40px 60px;
+    padding: 10px 60px 10px 60px;
     @include tablet() {
       padding: 10px 20px 10px 20px;
     }
