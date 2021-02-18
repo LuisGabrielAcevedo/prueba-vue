@@ -288,6 +288,9 @@ export default {
   &__mobile-recaptcha {
     transform: scale(0.94);
     margin-top: -20px;
+    @include xs() {
+      transform: scale(0.8);
+    }
   }
 }
 </style>
