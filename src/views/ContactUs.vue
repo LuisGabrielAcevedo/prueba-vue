@@ -135,6 +135,14 @@ export default {
           text: "No pude registrar mi código",
           value: 4,
         },
+        {
+          text: "Problemas con mi tazo",
+          value: 5,
+        },
+        {
+          text: "Otros",
+          value: 6,
+        },
       ],
     };
   },

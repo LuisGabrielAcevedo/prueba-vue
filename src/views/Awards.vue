@@ -7,6 +7,19 @@
       />
       <div class="awards__images-content">
         <div class="awards__images-item">
+            <img
+              class="awards__tazos"
+              src="@/assets/web/tazos-premios.png"
+            />
+            <div class="awards__message-container">
+              <span class="awards__message">50 TAZOS CON</span>
+              <span class="awards__message">DIFERENTES DISEÑOS</span>
+            </div>
+            <span class="awards__description">Encuéntralos en los empaques</span>
+            <span class="awards__description">de papas margarita y</span>
+            <span class="awards__description">¡Colecciónalos!</span>
+        </div>
+                <div class="awards__images-item">
           <img
             class="awards__iphone"
             src="@/assets/web/premio-iphone.png"
@@ -32,7 +45,7 @@
           <span class="awards__description">más oportunidades tendrás</span>
           <span class="awards__description">de ganar!</span>
         </div>
-      </div>
+        </div>
     </div>
     <div class="awards__footer">
       <span class="awards__footer-text">Aplican Términos y Condiciones.</span>
@@ -61,9 +74,9 @@ export default {
   }
   &__title {
     height: 90px;
+    margin-bottom: 20px;
     @include mobile() {
       height: 50px;
-      margin-bottom: 20px;
     }
   }
   &__content {
@@ -93,21 +106,27 @@ export default {
     align-items: center;
     justify-content: flex-end;
     margin-top: 40px;
-    margin: 0 60px;
+    margin: 0 20px;
     @include mobile {
       margin: 0 20px;
     }
   }
   &__iphone {
-    height: 260px;
+    height: 200px;
     @include mobile {
-      height: 200px;
+      height: 180px;
     }
   }
   &__gift {
-    height: 260px;
+    height: 200px;
     @include mobile {
-      height: 200px;
+      height: 180px;
+    }
+  }
+  &__tazos {
+    height: 200px;
+    @include mobile {
+      height: 180px;
     }
   }
   &__message-container {
@@ -116,7 +135,7 @@ export default {
      background-color: #D62626;
      border-radius: 25px;
      padding: 8px 20px;
-     width: 260px;
+     width: 240px;
      line-height: 16px;
      text-align: center;
      margin: 20px 0;
@@ -129,15 +148,13 @@ export default {
     color: white;
     font-family: MontrealBold;
     text-align: center;
-    @include mobile() {
-      font-size: 14px;
-    }
+    font-size: 14px;
   }
   &__description {
     color: #D62626;
     font-family: MontrealBold;
-    line-height: 14px;
-    font-size: 14px;
+    line-height: 12px;
+    font-size: 12px;
     letter-spacing: 1.9px;
     @include mobile() {
       font-size: 12px;

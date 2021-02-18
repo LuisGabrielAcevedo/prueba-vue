@@ -52,7 +52,7 @@ body {
   &__data-row {
     display: flex;
     align-items: center;
-    padding: 4px 0;
+    padding: 3px 0;
   }
   &--data-row-item-selected {
     color: #d62626;
@@ -60,7 +60,7 @@ body {
   &__data-row--selected {
     display: flex;
     align-items: center;
-    background-color: rgba(214, 38, 38, 0.7);
+    background-color: rgba(214, 38, 38, 0.8);
     border-radius: 25px;
     color: white;
   }

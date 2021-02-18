@@ -259,9 +259,13 @@ export default {
       position: absolute;
       display: flex;
       justify-content: flex-end;
-      top: 126px;
+      top: 110px;
       min-width: 1150px;
       padding-right: 24px;
+      @include tablet() {
+        top: 102px;
+        padding-right: 40px;
+      }
       @include tablet {
         min-width: 100%;
       }

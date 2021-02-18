@@ -167,7 +167,7 @@ export default {
     }
   }
   &__table {
-    height: 210px;
+    height: 194px;
   }
   &__scroll {
     overflow-y: auto;

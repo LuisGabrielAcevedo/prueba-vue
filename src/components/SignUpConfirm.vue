@@ -116,12 +116,15 @@ export default {
       font-family: MontrealBold;
       font-size: 16px;
       margin-bottom: 20px;
+      @include mobile() {
+        font-size: 14px;
+      }
   }
   &__text {
     margin: 0 !important;
     font-family: MontrealBold;
     @include mobile() {
-      font-size: 12px;
+      font-size: 11px;
     }
   }
   &__close-container {
@@ -138,6 +141,9 @@ export default {
   &__info-image {
     height: 180px;
     margin-top: -66px;
+    @include mobile() {
+      height: 130px;
+    }
   }
   &__buttons {
     display: flex;

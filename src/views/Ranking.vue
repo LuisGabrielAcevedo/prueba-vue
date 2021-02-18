@@ -85,7 +85,7 @@ export default {
     box-shadow: 7px 7px 7px #00000059;
     border-bottom-left-radius: 25px;
     border-bottom-right-radius: 25px;
-    padding: 20px 0 40px 0;
+    padding: 20px 0 10px 0;
     @include mobile() {
       width: 88%;
       padding: 20px 10px 40px 10px;
@@ -108,7 +108,7 @@ export default {
     align-items: center;
     border-radius: 25px;
     padding: 4px 20px;
-    margin-top: 20px;
+    margin-top: 10px;
     @include mobile{
       padding: 4px 10px;
     }

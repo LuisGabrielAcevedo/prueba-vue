@@ -44,6 +44,9 @@ export default {
   &__image2 {
     margin-top: 20px;
     height: 450px;
+    @include tablet () {
+      height: 370px;
+    }
     @include mobile() {
        height: 453px;
     }

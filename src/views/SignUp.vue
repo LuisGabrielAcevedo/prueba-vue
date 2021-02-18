@@ -117,21 +117,7 @@
             <div>
               <Radio @handle-click="toggleTerms()" :value="terms"/>
             </div>
-            <span class="signUp__radio-text">Acepto los <span class="signUp__radio-text-action" @click="goToTerms()">términos y condiciones</span> de la promoción.</span>
-          </div>
-          <div class="signUp__radio-container">
-            <div>
-              <Radio @handle-click="toggleTerms2()" :value="terms2"/>
-            </div>
-            <span class="signUp__radio-text">Acepto los <span class="signUp__radio-text-action" @click="goToTerms()">términos y condiciones</span> de manejo de datos.</span>
-          </div>
-          <div class="signUp__radio-container">
-            <div style="width:40px;">
-              <div>
-                <Radio @handle-click="toggleTerms3()" :value="terms3"/>
-              </div>
-            </div>
-            <span class="signUp__radio-text">Declaro que no soy trabajador o colaborador de PepsiCo, y/o sus compañías asociadas ni de los distribuidores de PepsiCo.</span>
+            <span class="signUp__radio-text">Acepto los <span class="signUp__radio-text-action" @click="goToTerms()">términos y condiciones</span> de la promoción y de manejo de datos.</span>
           </div>
           <div class="signUp__radio-container">
             <div style="width:40px;">
@@ -139,7 +125,7 @@
                 <Radio @handle-click="toggleTerms4()" :value="terms4"/>
               </div>
             </div>
-            <span class="signUp__radio-text" style="margin-left: -12px;">Soy mayor de edad.</span>
+            <span class="signUp__radio-text" style="margin-left: -12px;">Soy mayor de edad (Cumplidos antes del 01 marzo del 2021) </span>
           </div>
         </div>
         <div class="signUp__button-container">
@@ -172,8 +158,6 @@ export default {
   data() {
     return {
       terms: false,
-      terms2: false,
-      terms3: false,
       terms4: false,
       user: {},
       loading: false,
@@ -239,12 +223,6 @@ export default {
     toggleTerms() {
       this.terms = !this.terms
     },
-    toggleTerms2() {
-      this.terms2 = !this.terms2
-    },
-    toggleTerms3() {
-      this.terms3 = !this.terms3
-    },
     toggleTerms4() {
       this.terms4 = !this.terms4
     },
@@ -273,21 +251,7 @@ export default {
               buttonLabel: "Aceptar",
               type:'INFO',
               showClose: true,
-              message: "¡Debes aceptar los términos y condiciones de la promoción.!."
-            });
-          } else if (!this.terms2) {
-            this.$store.dispatch("setAlert", {
-              buttonLabel: "Aceptar",
-              type:'INFO',
-              showClose: true,
-              message: "¡Debes aceptar los términos y condiciones de manejo de datos."
-            });
-          } else if (!this.terms3) {
-            this.$store.dispatch("setAlert", {
-              buttonLabel: "Aceptar",
-              type:'INFO',
-              showClose: true,
-              message: "¡Debes declarar que no eres trabajador o colaborador de PepsiCo, y/o sus compañías asociadas ni de los distribuidores de PepsiCo!."
+              message: "¡Debes aceptar los términos y condiciones de la promoción y de manejo de datos!."
             });
           } else if (!this.terms4) {
             this.$store.dispatch("setAlert", {
@@ -474,7 +438,9 @@ export default {
     cursor: pointer;
   }
   &__button-container  {
-    margin-top: 40px;
+    @include mobile () {
+      margin-top: 20px;
+    }
   }
   &__form-row {
     display: flex;
@@ -485,6 +451,7 @@ export default {
   &__footer {
     display: flex;
     justify-content: space-around;
+    align-items: center;
     width: 100%;
     @include mobile() {
       flex-direction: column;

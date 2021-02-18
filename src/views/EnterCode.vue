@@ -48,38 +48,28 @@
       src="@/assets/web/titles/Titulo_Bienvenido.png"
      />
       <span class="enterCode__text">INGRESA EL CÓDIGO DE TU TAZO</span>
-      <div class="enterCode__mobile-content">
-      <img
-        class="enterCode__image4"
-        src="@/assets/web/tazos2.png"
+      <Input
+        field="id"
+        :model="id"
+        @handle-input="setValue($event)"
+        placeholder="Escribe aquí tu código"
+        maxlength="10"
+        :error="error"
       />
-      <div class="enterCode__mobile-content2">
-        <div style="width: 140px; margin-right: 20px;">
-          <Input
-          field="id"
-          :model="id"
-          @handle-input="setValue($event)"
-          placeholder="Escribe aquí tu código"
-          maxlength="10"
-          :error="error"
-        />
-        </div>
-        <div style="margin-top: 1px">
-          <Button text="ENVIAR" @handle-click="send()"/>
-        </div>
+      <div class="enterCode__mobile-recaptcha ">
+        <vue-recaptcha
+          sitekey="6LdInk8aAAAAAMzuYk9TFDurd_Nfu8WcVRvgHrjG"
+          :loadRecaptchaScript="true"
+          @verify="verifyRecaptcha"
+          @expired="expiredRecaptcha"
+          size="100px"
+          language="es"
+          ref="recaptcha"
+        ></vue-recaptcha>
       </div>
-      <div class="enterCode__mobile-recaptcha">
-          <vue-recaptcha
-            sitekey="6LdInk8aAAAAAMzuYk9TFDurd_Nfu8WcVRvgHrjG"
-            :loadRecaptchaScript="true"
-            @verify="verifyRecaptcha"
-            @expired="expiredRecaptcha"
-            size="100px"
-            language="es"
-            ref="recaptcha"
-          ></vue-recaptcha>
-          </div>
-      </div>
+       <div class="enterCode__button">
+        <Button text="ENVIAR" @handle-click="send()"/>
+       </div>
       <img
       v-if="mobile"
       class="enterCode__image"
@@ -206,7 +196,7 @@ export default {
     height: 100px;
     @include mobile() {
       height: 50px;
-      margin-bottom: 20px;
+      margin-bottom: 10px;
     }
   }
   &__image {
@@ -216,9 +206,10 @@ export default {
     margin-right: 100px;
     @include tablet() {
       margin-right: 20px;
+      height: 750px;
     }
     @include mobile() {
-      height: 500px;
+      height: 450px;
       margin-left: 0;
       margin-right: 120px;
     }
@@ -278,6 +269,9 @@ export default {
   }
   &__button {
     margin-top: 50px;
+    @include mobile() {
+      margin-top: 8px;
+    }
   }
   &__image4 {
     height: 80px;
@@ -287,23 +281,8 @@ export default {
       height: 60px;
     }
   }
-  &__mobile-content {
-    width: 100%;
-    margin-top: 30px;
-    position: relative;
-  }
   &__mobile-recaptcha {
-    position: absolute;
-    top: 0;
-    right: -98px;
-    transform: scale(0.4);
-  }
-  &__mobile-content2 {
-    display: flex;
-    align-items: flex-start;
-    position: absolute;
-    top: -28px;
-    right: 0;
+    transform: scale(0.8);
   }
 }
 </style>
