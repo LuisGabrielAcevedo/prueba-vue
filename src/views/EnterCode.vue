@@ -233,6 +233,7 @@ export default {
     margin-bottom: 20px;
     @include mobile() {
       margin: 0 20px 20px 20px;
+      padding: 20px 10px 10px 10px;
       overflow: hidden;
       max-width: 318px;
       max-height: 600px;
@@ -282,7 +283,7 @@ export default {
     }
   }
   &__mobile-recaptcha {
-    transform: scale(0.8);
+    transform: scale(0.94);
   }
 }
 </style>
