@@ -125,7 +125,7 @@
                 <Radio @handle-click="toggleTerms4()" :value="terms4"/>
               </div>
             </div>
-            <span class="signUp__radio-text" style="margin-left: -12px;">Soy mayor de edad (Cumplidos antes del 01 marzo del 2021) </span>
+            <span class="signUp__radio-text" style="margin-left: -12px;">Soy mayor de edad (Cumplidos antes del 01 marzo del 2021).</span>
           </div>
         </div>
         <div class="signUp__button-container">
@@ -383,10 +383,10 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
   }
   &__title {
-    height: 90px;
+    height: 80px;
     @include mobile() {
       height: 50px;
     }
@@ -399,9 +399,8 @@ export default {
     border-bottom-left-radius: 25px;
     border-bottom-right-radius: 25px;
     padding: 20px 60px 40px 60px;
-    margin-bottom: 20px;
     @include tablet() {
-      padding: 20px 20px 40px 20px;
+      padding: 10px 20px 10px 20px;
     }
     @include mobile() {
      padding: 20px 10px 40px 10px;
@@ -421,7 +420,7 @@ export default {
   &__description {
     font-family: MontrealBold;
     font-size: 12px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     @include mobile() {
       font-size: 10px;
     }
