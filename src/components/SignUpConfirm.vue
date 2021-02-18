@@ -15,7 +15,7 @@
       <span class="signup-confirm__text">Apellidos: {{ user.lastName }}</span>
       <span class="signup-confirm__text">Cédula: {{ user.idn }}</span>
       <span class="signup-confirm__text">
-        N° Celular: {{ user.phone }}
+        N° Celular: {{ user.phone.replace(/[^0-9]/g, '') }}
       </span>
       <span class="signup-confirm__text">
        Operador: {{ user.operator }}
