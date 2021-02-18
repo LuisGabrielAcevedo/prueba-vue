@@ -15,7 +15,7 @@
       <span class="signup-confirm__text">Apellidos: {{ user.lastName }}</span>
       <span class="signup-confirm__text">Cédula: {{ user.idn }}</span>
       <span class="signup-confirm__text">
-        N° Celular: {{ user.phone.replace(/[^0-9]/g, '') }}
+        N° Celular: {{ number }}
       </span>
       <span class="signup-confirm__text">
        Operador: {{ user.operator }}
@@ -45,6 +45,9 @@ export default {
   computed: {
     name() {
        return this.user.firstName + ' ' + this.user.lastName;
+    }, 
+    number() {
+      return `${this.user.phone.substring(0,3)}-${this.user.phone.substring(3,6)}-${this.user.phone.substring(6,10)}`
     }
   },
   data() {
@@ -63,8 +66,7 @@ export default {
       Register({ 
         ...this.user, 
         adult_registration: 1, 
-        name: `${this.user.firstName} ${this.user.lastName}`,
-        phone: this.user.phone.replace(/[^0-9]/g, '')
+        name: `${this.user.firstName} ${this.user.lastName}`
       })
         .then(resp => {
           this.loading = false;
