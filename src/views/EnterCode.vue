@@ -19,7 +19,6 @@
           placeholder="Escribe aquí tu código"
           maxlength="9"
           :error="error"
-          :mask="'NNNNNNNNN'"
         />
         <div class="enterCode__buttons-container">
           <div class="enterCode__recaptcha">
@@ -57,7 +56,6 @@
         placeholder="Escribe aquí tu código"
         maxlength="9"
         :error="error"
-        :mask="'NNNNNNNNN'"
       />
       </div>
       <div class="enterCode__mobile-recaptcha ">
