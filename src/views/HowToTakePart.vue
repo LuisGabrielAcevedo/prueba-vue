@@ -34,16 +34,16 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 20px;
+  padding-top: 10px;
   &__title {
-    height: 90px;
+    height: 80px;
     @include mobile() {
       height: 50px;
     }
   }
   &__image2 {
     margin-top: 20px;
-    height: 450px;
+    height: 380px;
     @include tablet () {
       height: 370px;
     }

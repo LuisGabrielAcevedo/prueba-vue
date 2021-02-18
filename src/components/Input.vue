@@ -8,33 +8,60 @@
           </span>
         </div>
         <input
-        v-if="onlyNumbers"
-        v-model="componentModel"
-        @input="input()"
-        class="input__field"
-        :type="type"
-        :placeholder="placeholder"
-        @keypress="isNumber($event)"
-        @focus="focus()"
-        :maxlength="maxlength"
-        :disabled="disabled"
-        autocomplete="off"
+          v-if="onlyNumbers && !mask"
+          v-model="componentModel"
+          @input="input()"
+          class="input__field"
+          :type="type"
+          :placeholder="placeholder"
+          @keypress="isNumber($event)"
+          @focus="focus()"
+          :maxlength="maxlength"
+          :disabled="disabled"
+          autocomplete="off"
+        /> 
+        <input
+          v-if="onlyNumbers && mask"
+          v-mask="mask"
+          v-model="componentModel"
+          @input="input()"
+          class="input__field"
+          :type="type"
+          :placeholder="placeholder"
+          @keypress="isNumber($event)"
+          @focus="focus()"
+          :maxlength="maxlength"
+          :disabled="disabled"
+          autocomplete="off"
         />
         <input
-        v-else
-        v-model="componentModel"
-        @input="input()"
-        class="input__field"
-        :type="type"
-        :placeholder="placeholder"
-        @focus="focus()"
-        :maxlength="maxlength"
-        autocomplete="off"
-        :disabled="disabled"
-        />
+          v-if="!onlyNumbers && !mask"
+          v-model="componentModel"
+          @input="input()"
+          class="input__field"
+          :type="type"
+          :placeholder="placeholder"
+          @focus="focus()"
+          :maxlength="maxlength"
+          autocomplete="off"
+          :disabled="disabled"
+          />
+        <input
+          v-if="!onlyNumbers && mask"
+          v-mask="mask"
+          v-model="componentModel"
+          @input="input()"
+          class="input__field"
+          :type="type"
+          :placeholder="placeholder"
+          @focus="focus()"
+          :maxlength="maxlength"
+          autocomplete="off"
+          :disabled="disabled"
+          />
     </div>
     <div class="input__messages">
-       <div class="input__messages-box">
+       <div class="input__messages-box" :style="{'padding-left': label ? '100px': '0px'}">
           <span class="input__error">{{ error || "" }}</span>
           <span v-if="hint && !error" class="input__hint">{{ hint }}</span>
        </div>
@@ -94,6 +121,10 @@ export default {
     maxlength: {
       type: String,
       default: "100"
+    },
+    mask: {
+      type: String,
+      default: ''
     }
   },
   methods: {

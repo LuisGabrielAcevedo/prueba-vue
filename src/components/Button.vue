@@ -1,5 +1,12 @@
 <template>
-  <div class="button" @click="click()" :style="{'background-color': color}">
+  <div 
+    class="button" 
+    @click="click()" 
+    :style="{
+      'background-color': color,
+      'padding': `${paddingHorizontal}px ${paddingVertical}px`
+    }"
+  >
     <span class="button__text">{{text}}</span>
   </div>
 </template>
@@ -12,10 +19,18 @@ export default {
       type: String,
       default: ''
     },
+    paddingVertical: {
+      type: String,
+      default: '12'
+    },
+    paddingHorizontal: {
+      type: String,
+      default: '6'
+    },
     color: {
       type: String,
       default: '#D72626'
-    },
+    }
   },
   methods: {
     click() {
@@ -29,10 +44,10 @@ export default {
 @import "@/assets/scss/mixins.scss";
 .button {
     border-radius: 25px;
-    padding: 6px 12px;
     cursor: pointer;
     display: flex;
     justify-content: center;
+    padding: 6px 12px;
     &__text {
       color:white;
       font-family: MontrealHeavy;

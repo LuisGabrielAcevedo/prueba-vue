@@ -72,7 +72,7 @@ export default {
   flex-direction: column;
   align-items: center;
   &__title {
-    height: 90px;
+    height: 80px;
     @include mobile() {
       height: 50px;
     }
@@ -85,7 +85,7 @@ export default {
     box-shadow: 7px 7px 7px #00000059;
     border-bottom-left-radius: 25px;
     border-bottom-right-radius: 25px;
-    padding: 20px 0 10px 0;
+    padding: 10px 0 0 0;
     @include mobile() {
       width: 88%;
       padding: 20px 10px 40px 10px;

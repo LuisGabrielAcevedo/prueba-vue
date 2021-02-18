@@ -60,7 +60,12 @@ export default {
       this.$emit("close-success", resp);
     },
     register() {
-      Register({ ...this.user, adult_registration: 1, name: `${this.user.firstName} ${this.user.lastName}` })
+      Register({ 
+        ...this.user, 
+        adult_registration: 1, 
+        name: `${this.user.firstName} ${this.user.lastName}`,
+        phone: this.user.phone.replace(/[^0-9]/g, '')
+      })
         .then(resp => {
           this.loading = false;
           this.closeSuccess(resp);

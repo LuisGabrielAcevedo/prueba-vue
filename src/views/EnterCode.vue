@@ -17,8 +17,9 @@
           :model="id"
           @handle-input="setValue($event)"
           placeholder="Escribe aquí tu código"
-          maxlength="10"
+          maxlength="8"
           :error="error"
+          :mask="'NNNNNNNN'"
         />
         <div class="enterCode__buttons-container">
           <div class="enterCode__recaptcha">
@@ -48,14 +49,17 @@
       src="@/assets/web/titles/Titulo_Bienvenido.png"
      />
       <span class="enterCode__text">INGRESA EL CÓDIGO DE TU TAZO</span>
-      <Input
+      <div style="width: 200px">
+        <Input
         field="id"
         :model="id"
         @handle-input="setValue($event)"
         placeholder="Escribe aquí tu código"
-        maxlength="10"
+        maxlength="8"
         :error="error"
+        :mask="'NNNNNNNN'"
       />
+      </div>
       <div class="enterCode__mobile-recaptcha ">
         <vue-recaptcha
           sitekey="6LdInk8aAAAAAMzuYk9TFDurd_Nfu8WcVRvgHrjG"
@@ -68,7 +72,7 @@
         ></vue-recaptcha>
       </div>
        <div class="enterCode__button">
-        <Button text="ENVIAR" @handle-click="send()"/>
+        <Button paddingVertical="50" paddingHorizontal="10" text="ENVIAR" @handle-click="send()"/>
        </div>
       <img
       v-if="mobile"
@@ -193,7 +197,7 @@ export default {
     height: 100%;
   }
   &__title {
-    height: 100px;
+    height: 90px;
     @include mobile() {
       height: 50px;
       margin-bottom: 10px;
@@ -201,12 +205,11 @@ export default {
   }
   &__image {
     margin-top: 10px;
-    height: 836px;
+    height: 720px;
     margin-left: -170px;
     margin-right: 100px;
     @include tablet() {
       margin-right: 20px;
-      height: 750px;
     }
     @include mobile() {
       height: 450px;
@@ -284,6 +287,7 @@ export default {
   }
   &__mobile-recaptcha {
     transform: scale(0.94);
+    margin-top: -20px;
   }
 }
 </style>

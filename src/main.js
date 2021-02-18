@@ -7,6 +7,8 @@ import "./styles.scss";
 import "@/plugins/axios";
 import AxiosInterceptor from "@/plugins/axios-interceptor";
 new AxiosInterceptor();
+import VueMask from "v-mask";
+Vue.use(VueMask);
 
 Vue.config.productionTip = false;
 

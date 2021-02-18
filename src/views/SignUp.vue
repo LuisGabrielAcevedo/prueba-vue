@@ -64,6 +64,7 @@
           hint="*En caso de ser ganador, a este número celular se hará la recarga."
           :error="errors.phone"
           :onlyNumbers="true"
+          :mask="'###-###-####'"
         />
       </div>
       <div class="signUp__form-row">
@@ -330,10 +331,10 @@ export default {
       ) {
         errors.lastName = "El apellido debe tener entre 4 y 20 carácteres.";
       }
-      if (this.user.phone && !phoneReq.test(this.user.phone)) {
+      if (this.user.phone && !phoneReq.test(this.user.phone.replace(/[^0-9]/g, ''))) {
         errors.phone = "Ingresa un número de celular válido.";
       }
-      if (this.user.phone && !(this.user.phone.length === 10)) {
+      if (this.user.phone && !(this.user.phone.replace(/[^0-9]/g, '').length === 10)) {
         errors.phone = "El celular debe tener 10 carácteres.";
       }
       if (this.user.idn && !idReq.test(this.user.idn)) {

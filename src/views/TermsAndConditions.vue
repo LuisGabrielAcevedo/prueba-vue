@@ -31,10 +31,10 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 20px;
+  padding-top: 10px;
   height: 100%;
   &__title {
-    height: 90px;
+    height: 80px;
     @include mobile() {
       height: 50px;
     }
