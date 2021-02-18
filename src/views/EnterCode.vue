@@ -17,9 +17,9 @@
           :model="id"
           @handle-input="setValue($event)"
           placeholder="Escribe aquí tu código"
-          maxlength="8"
+          maxlength="9"
           :error="error"
-          :mask="'NNNNNNNN'"
+          :mask="'NNNNNNNNN'"
         />
         <div class="enterCode__buttons-container">
           <div class="enterCode__recaptcha">
@@ -55,9 +55,9 @@
         :model="id"
         @handle-input="setValue($event)"
         placeholder="Escribe aquí tu código"
-        maxlength="8"
+        maxlength="9"
         :error="error"
-        :mask="'NNNNNNNN'"
+        :mask="'NNNNNNNNN'"
       />
       </div>
       <div class="enterCode__mobile-recaptcha ">

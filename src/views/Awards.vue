@@ -87,7 +87,7 @@ export default {
     box-shadow: 7px 7px 7px #00000059;
     border-bottom-left-radius: 25px;
     border-bottom-right-radius: 25px;
-    padding: 10px 0 40px 0;
+    padding: 10px 0 10px 0;
     @include mobile() {
       padding: 20px 10px 40px 10px;
       width: 88%;
@@ -112,21 +112,21 @@ export default {
     }
   }
   &__iphone {
-    height: 200px;
+    height: 180px;
     @include mobile {
-      height: 180px;
+      height: 160px;
     }
   }
   &__gift {
-    height: 200px;
+    height: 180px;
     @include mobile {
-      height: 180px;
+      height: 160px;
     }
   }
   &__tazos {
-    height: 200px;
+    height: 180px;
     @include mobile {
-      height: 180px;
+      height: 160px;
     }
   }
   &__message-container {

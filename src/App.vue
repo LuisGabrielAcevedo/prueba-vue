@@ -203,7 +203,8 @@ export default {
       transform: scale(1.2);
     }
     @media only screen and(max-width: 360px) {
-      transform: scale(1);
+      height: 100%;
+      width: 100%;
     }
   }
 }
