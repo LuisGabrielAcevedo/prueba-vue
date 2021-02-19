@@ -234,7 +234,7 @@ export default {
     padding-left: 100px;
     width: 100%;
     @include mobile() {
-      padding-left: 70px;
+      padding-left: 70px !important;
     }
   }
 }
