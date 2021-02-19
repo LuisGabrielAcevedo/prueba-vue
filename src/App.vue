@@ -200,7 +200,7 @@ export default {
       transform: scale(1.4);
     }
     @media only screen and(max-width: 400px) {
-      transform: scale(1.2);
+      transform: scale(1.4);
     }
   }
 }
