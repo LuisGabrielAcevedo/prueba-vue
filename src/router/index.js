@@ -12,6 +12,7 @@ import TermsAndConditions from "../views/TermsAndConditions.vue";
 import AppContent from "../views/AppContent.vue";
 import ContactUs from "../views/ContactUs.vue";
 import store from "@/store";
+import FAQ from '../views/FAQ.vue'
 // import { Activity } from "../api";
 
 Vue.use(VueRouter);
@@ -109,6 +110,12 @@ const routes = [
         path: "contactenos",
         name: "contactUs",
         component: ContactUs,
+        beforeEnter: authGuard,
+      },
+      {
+        path: "faq",
+        name: "faq",
+        component: FAQ,
         beforeEnter: authGuard,
       },
       {

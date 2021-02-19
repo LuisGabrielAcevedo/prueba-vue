@@ -156,6 +156,11 @@ export default {
         isVisible: () => this.token
       },
       {
+        name: "FAQ",
+        path: "/faq",
+        isVisible: () => true
+      },
+      {
         name: "CERRAR SESIÓN",
         clickAction: () => {this.logout()},
         isVisible: () => this.token && this.mobile
