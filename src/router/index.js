@@ -20,7 +20,8 @@ const getActivity = async () => {
   return null;
   // try {
   //   const resp = await Activity();
-  //   if (resp.data.days > 0) return "/muy-pronto-comienza-la-promo";
+  //   if (resp.data.days > 0 || resp.data.status === "finished")
+  //     return "/muy-pronto-comienza-la-promo";
   //   if (resp.data.days === 0) return "/";
   //   return null;
   // } catch (err) {

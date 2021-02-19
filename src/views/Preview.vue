@@ -2,9 +2,10 @@
   <div class="preview">
     <div class="preview__modal">
       <img
-      class="preview__image"
-      src="@/assets/web/preview-logo.png"
-    />
+        class="preview__image"
+        src="@/assets/web/preview-logo.png"
+      />
+      <div v-if="!finished" class="preview__content">
         <span class="preview__title">¡MUY PRONTO</span>
         <span class="preview__title preview__title2">COMIENZA LA PROMO!</span>
         <div class="preview__section" v-if="!mobile">
@@ -20,6 +21,12 @@
         <span v-if="mobile" class="preview__endMessage" style="margin-top: 46px;">FALTAN</span>
         <span v-if="mobile" class="preview__number">{{days}}</span>
         <span v-if="mobile" class="preview__endMessage">DÍAS</span>
+      </div>
+      <div v-else class="preview__content">
+        <span class="preview__title">LA PROMO</span>
+        <span class="preview__title preview__title2">HA FINALIZADO</span>
+        <span class="preview__text">¡MUCHAS GRACIAS A TODOS POR PARTICIPAR!</span>
+      </div>
     </div>
   </div>
 </template>
@@ -39,9 +46,10 @@ export default {
   methods: {
     getActivity() {
       Activity().then(resp => {
-        this.days = resp.data.days
-        if (this.days === 0) {
-          this.goTo('/ingresar')
+        this.finished = resp.data.status === 'finished'
+        if (!this.finished) {
+          this.days = resp.data.days
+          if (this.days === 0) this.goTo('/ingresar')
         }
       })
     },
@@ -51,7 +59,8 @@ export default {
   },
   data() {
     return {
-      days: 0
+      days: 0, 
+      finished: true
     };
   },
 }
@@ -139,6 +148,10 @@ export default {
     @include mobile() {
       font-size: 14px;
     }
+  }
+  &__content {
+    display: flex;
+    flex-direction: column;
   }
 }
 </style>
