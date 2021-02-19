@@ -202,10 +202,6 @@ export default {
     @media only screen and(max-width: 400px) {
       transform: scale(1.2);
     }
-    @media only screen and(max-width: 360px) {
-      height: 100%;
-      width: 100%;
-    }
   }
 }
 </style>
