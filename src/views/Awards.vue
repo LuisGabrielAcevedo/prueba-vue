@@ -108,13 +108,14 @@ export default {
     margin-top: 40px;
     margin: 0 20px;
     @include mobile {
-      margin: 0 20px;
+      margin: 0 8px;
     }
   }
   &__iphone {
     height: 180px;
     @include mobile {
       height: 160px;
+      margin-top: 10px;
     }
   }
   &__gift {
@@ -157,7 +158,7 @@ export default {
     font-size: 12px;
     letter-spacing: 1.9px;
     @include mobile() {
-      font-size: 12px;
+      font-size: 10px;
     }
   }
   &__footer {
