@@ -320,7 +320,7 @@ export default {
         margin-bottom: 20px;
       }
       @include xs() {
-        margin-bottom: 10px;
+        margin-bottom: 6px;
       }
     }
     &--web-route-selected {
@@ -332,6 +332,9 @@ export default {
       color: white;
       @include tablet() {
         font-size: 14px !important;
+      }
+      @include xs() {
+        font-size: 12px !important;
       }
     }
     &--web-route-text-selected {
@@ -377,6 +380,10 @@ export default {
     height: 50px;
     margin-top: 20px;
     margin-bottom: 40px;
+    @include xs() {
+      height: 40px;
+      margin-bottom: 20px;
+    }
   }
 }
 

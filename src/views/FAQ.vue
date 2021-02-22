@@ -1,9 +1,9 @@
 <template>
   <div class="faq">
-    <!-- <img
+    <img
       class="faq__title"
-      src="@/assets/web/titles/Titulo_TyC.png"
-    /> -->
+      src="@/assets/web/titles/Titulo_FAQ.png"
+    />
     <div class="faq__content-1">
       <div class="faq__content">
         <div class="faq__box">

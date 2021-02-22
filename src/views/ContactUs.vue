@@ -169,7 +169,7 @@ export default {
     border-bottom-left-radius: 25px;
     border-bottom-right-radius: 25px;
     padding: 10px 100px 40px 100px;
-    @include mobile() {
+    @media only screen and(max-width: 600px) {
       width: 88%;
       padding: 20px 10px 40px 10px;
       margin-bottom: 20px;
