@@ -320,15 +320,15 @@ export default {
       }
       if (
         this.user.firstName &&
-        !(this.user.firstName.length >= 4 && this.user.firstName.length < 20)
+        !(this.user.firstName.length >= 3 && this.user.firstName.length < 20)
       ) {
-        errors.firstName = "El nombre debe tener entre 4 y 20 carácteres.";
+        errors.firstName = "El nombre debe tener entre 3 y 20 carácteres.";
       }
       if (
         this.user.lastName &&
-        !(this.user.lastName.length >= 4 && this.user.lastName.length < 20)
+        !(this.user.lastName.length >= 3 && this.user.lastName.length < 20)
       ) {
-        errors.lastName = "El apellido debe tener entre 4 y 20 carácteres.";
+        errors.lastName = "El apellido debe tener entre 3 y 20 carácteres.";
       }
       if (this.user.phone && !phoneReq.test(this.user.phone)) {
         errors.phone = "Ingresa un número de celular válido.";
