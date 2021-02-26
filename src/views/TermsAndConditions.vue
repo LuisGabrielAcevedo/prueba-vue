@@ -99,6 +99,24 @@ Premio Mayor (definido más adelante).
             <p class="termsAndConditions__option">
               b. El participante deberá ingresar al sitio web, WWW.PROMOGOLAZOS.COM (en adelante el “Sitio Web”), y registrar los siguientes datos:
             </p>
+            <table class="termsAndConditions__table">
+            <tr>
+              <td class="termsAndConditions__td">Nombre (obligatorio)</td>
+              <td>Apellido (obligatorio)</td>
+            </tr>
+             <tr>
+              <td class="termsAndConditions__td">Cédula (obligatorio)</td>
+              <td>Celular (obligatorio)</td>
+            </tr>
+            <tr>
+              <td class="termsAndConditions__td">Departamento (obligatorio)</td>
+              <td>Operador (obligatorio)</td>
+            </tr>
+            <tr>
+              <td class="termsAndConditions__td">Correo electrónico (obligatorio)</td>
+              <td></td>
+            </tr>
+            </table>
             <p class="termsAndConditions__option">
               c. De igual forma, el participante deberá aceptar los términos y condiciones de la ACTIVIDAD, los términos y condiciones del manejo de datos, la declaración de que no es un trabajador o colaborador de PepsiCo y/o sus compañías asociadas, ni de los distribuidores PepsiCo o agencia vinculada a la ACTIVIDAD, al igual que una casilla de confirmación que es mayor de edad y una casilla de validación captcha de “No soy un robot”.
             </p>
@@ -182,6 +200,19 @@ Premio Mayor (definido más adelante).
             <p>
               7.2. Los premios que serán entregados a los ganadores cuentan con la garantía otorgada directamente por el proveedor del respectivo premio; que en el caso de las recargas celulares será LoyalQuo S.A.S a través de los acuerdos que tiene con los distribuidores de recargas celulares y para el caso de los bonos será Falabella, sin que sea procedente presentar reclamos a PEPSICO por este concepto. Para este efecto, si los ganadores pretenden hacer efectiva la “garantía del producto”, es decir, de los premios, los Participantes deberán contactarse al siguiente correo teniendo en cuenta el proveedor del respectivo premio que hayan obtenido:
             </p>
+            <table class="termsAndConditions__table">
+              <tr>
+                <th colspan="2" class="termsAndConditions__th">Canal de Atención Habilitado por los Proveedores del Respectivo Premio</th>
+              </tr>
+              <tr>
+                <td class="termsAndConditions__td">Recargas Celulares</td>
+                <td>saccolombia@loyalquo.com</td>
+              </tr>
+              <tr>
+                <td class="termsAndConditions__td">Bono por valor de cuatro millones de pesos</td>
+                <td>saccolombia@loyalquo.com</td>
+              </tr>
+            </table>
             <p class="termsAndConditions__text-title">
               OCTAVO. – COMUNICACIÓN Y ENTREGA DEL PREMIO MAYOR:
             </p>
@@ -559,6 +590,30 @@ export default {
   }
   &__option2 {
     margin-left: 20px;
+  }
+  &__table {
+    border: 1px solid black;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    @include mobile() {
+      font-size: 8px !important;
+    }
+    @include xs() {
+      font-size: 7px !important;
+    }
+  }
+  &__td{
+    border-right: 1px solid black;
+  }
+  &__th {
+    border-bottom: 1px solid black;;
+  }
+  td, th {
+    padding: 2px 4px;
+    @include mobile() {
+      padding: 1px 2px;
+    }
   }
     /* width */
   ::-webkit-scrollbar {

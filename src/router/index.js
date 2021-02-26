@@ -13,21 +13,18 @@ import AppContent from "../views/AppContent.vue";
 import ContactUs from "../views/ContactUs.vue";
 import store from "@/store";
 import FAQ from "../views/FAQ.vue";
-// import { Activity } from "../api";
+import { Activity } from "../api";
 
 Vue.use(VueRouter);
 
 const getActivity = async () => {
-  return null;
-  // try {
-  //   const resp = await Activity();
-  //   if (resp.data.days > 0 || resp.data.status === "finished")
-  //     return "/muy-pronto-comienza-la-promo";
-  //   if (resp.data.days === 0) return "/";
-  //   return null;
-  // } catch (err) {
-  //   return "/muy-pronto-comienza-la-promo";
-  // }
+  try {
+    const resp = await Activity();
+    if (resp.data.status === "finished") return "/muy-pronto-comienza-la-promo";
+    return null;
+  } catch (err) {
+    return "/muy-pronto-comienza-la-promo";
+  }
 };
 
 const activityGuard = async (to, from, next) => {
