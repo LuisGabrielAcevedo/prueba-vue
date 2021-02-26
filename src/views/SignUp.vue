@@ -63,6 +63,7 @@
           :required="false"
           hint="*En caso de ser ganador, a este número celular se hará la recarga."
           :error="errors.phone"
+          maxlength="10"
           :onlyNumbers="true"
         />
       </div>

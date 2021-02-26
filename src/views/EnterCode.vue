@@ -17,7 +17,7 @@
           :model="id"
           @handle-input="setValue($event)"
           placeholder="Escribe aquí tu código"
-          maxlength="9"
+          maxlength="8"
           :error="error"
         />
         <div class="enterCode__buttons-container">
@@ -54,7 +54,7 @@
         :model="id"
         @handle-input="setValue($event)"
         placeholder="Escribe aquí tu código"
-        maxlength="9"
+        maxlength="8"
         :error="error"
       />
       </div>
