@@ -30,11 +30,17 @@ export default {
     color: {
       type: String,
       default: '#D72626'
+    }, 
+    isLoading: {
+      type: Boolean,
+      default: false
     }
   },
   methods: {
     click() {
+     if (!this.isLoading) {
       this.$emit('handle-click')
+     }
     }
   }
 }

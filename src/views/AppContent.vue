@@ -3,7 +3,7 @@
      <Header/>
      <div class="app-content__content">
        <div class="app-content__box">
-         <div class="app-content__scroll">
+         <div class="app-content__scroll" ref="div">
             <router-view/>
          </div>
        </div>
@@ -15,7 +15,18 @@
 import Header from '../components/Header'
 export default {
   name: 'AppContent',
-  components: {Header}
+  components: {Header},
+  watch: {
+    "$route.path": {
+      handler: function() {
+        if (this.$refs.div) {
+          this.$refs.div.scrollTop = 0
+        }
+      },
+      deep: true,
+      immediate: true
+    },
+  }
 }
 </script>
 

@@ -33,7 +33,7 @@
           ></vue-recaptcha>
           </div>
           <div class="enterCode__button">
-            <Button text="ENVIAR" @handle-click="send()"/>
+            <Button text="ENVIAR" @handle-click="send()" :isLoading="loading"/>
           </div>
         </div>
       </div>
@@ -133,6 +133,7 @@ export default {
       }
     }, 
     save() {
+      this.loading = true;
       SaveCodes({
         code: this.id,
       })
@@ -140,6 +141,9 @@ export default {
            GetStatus().then(resp => {
             this.id = "";
             this.loading = false;
+            this.$refs.recaptcha.reset()
+            this.recaptchaCode = null;
+            this.count = 0
             this.$store.dispatch("setAlert", {
             showClose: true,
             type:'SUCCESS',
